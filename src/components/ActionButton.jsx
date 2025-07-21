@@ -10,6 +10,7 @@ const buttonStyle = {
 function ActionButton({ type, children, onClick, style }) {
   return (
     <button
+      className="button"
       type={type || "button"}
       onClick={onClick}
       style={{ ...buttonStyle, ...style }}
