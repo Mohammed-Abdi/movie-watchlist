@@ -9,6 +9,12 @@ h1 {
   .button:hover {
     opacity: 0.8;
   }
+  .icon-button {
+    transition: background-color 0.3s ease-in-out;
+  }
+  .icon-button:hover {
+    background-color: #ffffff33;
+  }
   h1 {
     font-size: 3rem;
   }
