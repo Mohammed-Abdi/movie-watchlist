@@ -11,4 +11,6 @@ body {
   background-color: var(--background-clr);
   color: var(--text-clr);
   font-family: "Outfit", sans-serif;
+  width: max(50rem, 100% - 2.5rem);
+  margin-inline: auto;
 }
