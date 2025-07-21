@@ -6,7 +6,6 @@ const heroStyle = {
   alignItems: "center",
   gap: "1.25rem",
   textAlign: "center",
-  margin: "auto",
 };
 
 function Hero() {

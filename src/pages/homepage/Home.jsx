@@ -2,11 +2,11 @@ import ActionButton from "../../components/ActionButton";
 import Hero from "../../components/Hero";
 import Logo from "../../components/Logo";
 import NavBar from "../../components/navBar";
-import "./Home.module.css";
+import styles from "./Home.module.css";
 
 function Home() {
   return (
-    <main>
+    <main className={styles.homepage}>
       <NavBar>
         <Logo />
         <ActionButton>Explore</ActionButton>
