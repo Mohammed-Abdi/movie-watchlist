@@ -1,0 +1,14 @@
+.search {
+  min-height: 100vh;
+}
+
+.searchInput {
+  padding: 0.75rem 3rem;
+  border-radius: 2rem;
+  border: none;
+  outline: none;
+  background-color: #262c36;
+  font-size: 1rem;
+  color: inherit;
+  width: 100%;
+}
