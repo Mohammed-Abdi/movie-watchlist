@@ -14,7 +14,14 @@ function Hero() {
     <section style={heroStyle}>
       <h1>Your personal movie</h1>
       <h1>watchlist & rating vault</h1>
-      <ActionButton style={{ paddingInline: "2rem" }}>Explore</ActionButton>
+      <ActionButton
+        style={{
+          paddingInline: "3rem",
+          paddingBlock: "0.75rem",
+        }}
+      >
+        Explore
+      </ActionButton>
     </section>
   );
 }
