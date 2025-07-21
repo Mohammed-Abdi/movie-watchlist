@@ -6,6 +6,7 @@ const heroStyle = {
   alignItems: "center",
   gap: "1.25rem",
   textAlign: "center",
+  transform: "translateY(-1.25rem)",
 };
 
 function Hero() {
