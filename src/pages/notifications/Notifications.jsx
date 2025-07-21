@@ -4,6 +4,7 @@ import styles from "./Notifications.module.css";
 import SecondaryButton from "../../components/SecondaryButton";
 import Back from "../../assets/Back";
 import Logo from "../../components/Logo";
+import NoData from "../../assets/NoData";
 
 function Notifications() {
   return (
@@ -22,6 +23,7 @@ function Notifications() {
         </Link>
         <Logo text="Notifications" />
       </NavBar>
+      <NoData text="You're all caught up. No new notifications" />
     </main>
   );
 }
