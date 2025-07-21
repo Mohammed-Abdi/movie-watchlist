@@ -5,6 +5,7 @@ const buttonStyle = {
   borderRadius: "0.25rem",
   border: "none",
   cursor: "pointer",
+  width: "fit-content",
 };
 
 function ActionButton({ type, children, onClick, style }) {
