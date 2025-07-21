@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ActionButton from "../../components/ActionButton";
 import BackgroundImage from "../../components/background-image/BackgroundImage";
 import Footer from "../../components/Footer";
@@ -12,7 +13,9 @@ function Home() {
       <BackgroundImage />
       <NavBar>
         <Logo />
-        <ActionButton>Explore</ActionButton>
+        <Link to="/dashboard">
+          <ActionButton>Explore</ActionButton>
+        </Link>
       </NavBar>
       <Hero />
       <Footer>&copy; 2025. Mohammed Abdi. All rights reserved</Footer>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ActionButton from "./ActionButton";
 
 const heroStyle = {
@@ -20,14 +21,16 @@ function Hero() {
         Track what you’ve seen, save what you love, and rate like a critic — all
         in one personal movie vault.
       </p>
-      <ActionButton
-        style={{
-          padding: "0.75rem 3rem",
-          fontSize: "1rem",
-        }}
-      >
-        Explore
-      </ActionButton>
+      <Link to="/dashboard">
+        <ActionButton
+          style={{
+            padding: "0.75rem 3rem",
+            fontSize: "1rem",
+          }}
+        >
+          Explore
+        </ActionButton>
+      </Link>
     </section>
   );
 }
