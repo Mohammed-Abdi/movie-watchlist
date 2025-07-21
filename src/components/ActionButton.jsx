@@ -12,7 +12,7 @@ function ActionButton({ type, children, onClick, style }) {
     <button
       type={type || "button"}
       onClick={onClick}
-      style={{ ...style, ...buttonStyle }}
+      style={{ ...buttonStyle, ...style }}
     >
       {children}
     </button>
