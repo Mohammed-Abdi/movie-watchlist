@@ -1,4 +1,5 @@
 import ActionButton from "../../components/ActionButton";
+import BackgroundImage from "../../components/background-image/BackgroundImage";
 import Footer from "../../components/Footer";
 import Hero from "../../components/Hero";
 import Logo from "../../components/Logo";
@@ -8,6 +9,7 @@ import styles from "./Home.module.css";
 function Home() {
   return (
     <main className={styles.homepage}>
+      <BackgroundImage />
       <NavBar>
         <Logo />
         <ActionButton>Explore</ActionButton>

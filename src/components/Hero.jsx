@@ -17,7 +17,7 @@ function Hero() {
       <ActionButton
         style={{
           paddingInline: "3rem",
-          paddingBlock: "0.75rem",
+          paddingBlock: "0.75rem ",
           fontSize: "1rem",
         }}
       >
