@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Bell from "../assets/Bell";
 import Bookmark from "../assets/Bookmark";
 import Search from "../assets/Search";
@@ -12,17 +13,22 @@ const utilitiesStyle = {
 function Utilities() {
   return (
     <div style={utilitiesStyle}>
-      <SecondaryButton>
-        <Search style={{ opacity: 0.8 }} />
-      </SecondaryButton>
+      <Link to="/dashboard/search">
+        <SecondaryButton>
+          <Search style={{ opacity: 0.8 }} />
+        </SecondaryButton>
+      </Link>
 
-      <SecondaryButton>
-        <Bookmark style={{ opacity: 0.8 }} />
-      </SecondaryButton>
-
-      <SecondaryButton>
-        <Bell style={{ opacity: 0.8 }} />
-      </SecondaryButton>
+      <Link to="/dashboard/watchlist">
+        <SecondaryButton>
+          <Bookmark style={{ opacity: 0.8 }} />
+        </SecondaryButton>
+      </Link>
+      <Link to="/dashboard/notifications">
+        <SecondaryButton>
+          <Bell style={{ opacity: 0.8 }} />
+        </SecondaryButton>
+      </Link>
     </div>
   );
 }
