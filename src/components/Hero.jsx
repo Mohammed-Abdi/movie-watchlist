@@ -12,8 +12,14 @@ const heroStyle = {
 function Hero() {
   return (
     <section style={heroStyle}>
-      <h1>Your personal movie</h1>
-      <h1>watchlist & rating vault</h1>
+      <div>
+        <h1>Your personal movie</h1>
+        <h1>watchlist & rating vault</h1>
+      </div>
+      <p>
+        Track what you’ve seen, save what you love, and rate like a critic — all
+        in one personal movie vault.
+      </p>
       <ActionButton
         style={{
           paddingInline: "3rem",
