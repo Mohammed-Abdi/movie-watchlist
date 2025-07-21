@@ -1,3 +1,4 @@
+import ActionButton from "../../components/ActionButton";
 import NavBar from "../../components/navBar";
 import "./Home.module.css";
 
@@ -6,7 +7,7 @@ function Home() {
     <main>
       <NavBar>
         <div>Logo</div>
-        <button>Explore</button>
+        <ActionButton>Explore</ActionButton>
       </NavBar>
     </main>
   );
