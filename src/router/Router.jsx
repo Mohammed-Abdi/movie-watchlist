@@ -10,13 +10,10 @@ function Router() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-
-      <Route path="/dashboard" element={<Dashboard />}>
-        <Route path="notifications" element={<Notifications />} />
-        <Route path="search" element={<Search />} />
-        <Route path="watchlist" element={<Watchlist />} />
-      </Route>
-
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/search" element={<Search />} />
+      <Route path="/notifications" element={<Notifications />} />
+      <Route path="/watchlist" element={<Watchlist />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

@@ -2,12 +2,7 @@ import Logo from "../../components/Logo";
 import styles from "./Search.module.css";
 
 function Search() {
-  return (
-    <main className={styles.Search}>
-      Search
-      <Logo />
-    </main>
-  );
+  return <main className={styles.Search}>Search</main>;
 }
 
 export default Search;
