@@ -2,10 +2,11 @@ import ActionButton from "./ActionButton";
 
 const heroStyle = {
   display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  gap: "1.25rem",
   textAlign: "center",
   margin: "auto",
-  flexDirection: "column",
-  gap: "1.25rem",
 };
 
 function Hero() {
