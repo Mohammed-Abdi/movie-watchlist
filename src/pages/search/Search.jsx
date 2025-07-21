@@ -4,17 +4,35 @@ import Back from "../../assets/Back";
 import NavBar from "../../components/navBar";
 import SearchIcon from "../../assets/Search";
 import SecondaryButton from "../../components/SecondaryButton";
+import { useEffect, useRef } from "react";
 
 function Search() {
+  const searchInput = useRef();
+
+  useEffect(() => {
+    searchInput.current.focus();
+  }, []);
+
   return (
     <main className={styles.Search}>
-      <NavBar style={{ justifyContent: "none", gap: "0.625rem" }}>
+      <NavBar
+        style={{
+          justifyContent: "none",
+          gap: "0.625rem",
+        }}
+      >
         <Link to="/dashboard" style={{ color: "inherit" }}>
           <SecondaryButton>
             <Back style={{ opacity: 0.8 }} />
           </SecondaryButton>
         </Link>
-        <div style={{ position: "relative", width: "100%" }}>
+        <div
+          style={{
+            position: "relative",
+            width: "min(37.5rem, 100%)",
+            marginInline: "auto",
+          }}
+        >
           <div
             style={{
               position: "absolute",
@@ -28,6 +46,7 @@ function Search() {
             />
           </div>
           <input
+            ref={searchInput}
             type="text"
             placeholder="Search..."
             className={styles.searchInput}
