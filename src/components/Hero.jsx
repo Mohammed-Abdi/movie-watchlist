@@ -27,6 +27,7 @@ function Hero() {
           style={{
             padding: "0.75rem 3rem",
             fontSize: "1rem",
+            borderRadius: "0.5rem",
           }}
         >
           Explore
