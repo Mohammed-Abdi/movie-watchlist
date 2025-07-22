@@ -116,6 +116,7 @@ function HeroSlider({ movies }) {
                 padding: "0.75rem 3rem",
                 fontSize: "1rem",
                 maxWidth: "fit-content",
+                borderRadius: "0.5rem",
               }}
             >
               Add to Watchlist
