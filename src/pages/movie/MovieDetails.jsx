@@ -85,7 +85,7 @@ function MovieDetails() {
               borderRadius: "0.5rem",
             }}
           >
-            Add to Watchlist
+            <span style={{ whiteSpace: "nowrap" }}>Add to Watchlist</span>
           </ActionButton>
         </div>
 
