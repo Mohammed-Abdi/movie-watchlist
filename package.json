@@ -16,8 +16,7 @@
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^7.7.0",
     "react-slick": "^0.30.3",
-    "slick-carousel": "^1.8.1",
-    "swiper": "^11.2.10"
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
