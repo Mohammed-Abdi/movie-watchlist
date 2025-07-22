@@ -51,6 +51,6 @@
 
 @media (min-width: 48rem) {
   .cardWrapper:hover .poster {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 }
