@@ -64,6 +64,7 @@ function MovieDetails() {
         <img
           src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
           alt={`${movie?.title || movie.original_name} backdrop`}
+          loading="eager"
           style={{ height: "40vh", objectFit: "cover", width: "100%" }}
         />
       </div>
@@ -73,6 +74,7 @@ function MovieDetails() {
           <img
             src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
             alt={`${movie?.title || movie.original_name} poster`}
+            loading="eager"
             className={styles.poster}
           />
           <ActionButton
