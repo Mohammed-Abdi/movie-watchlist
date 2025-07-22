@@ -7,6 +7,7 @@ import SecondaryButton from "./secondary-button/SecondaryButton";
 const utilitiesStyle = {
   display: "flex",
   alignItems: "center",
+  transform: "translateX(0.625rem)",
 };
 
 function Utilities() {
