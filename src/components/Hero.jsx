@@ -15,12 +15,12 @@ function Hero() {
   return (
     <section style={heroStyle}>
       <div>
-        <h1>Your personal movie</h1>
-        <h1>watchlist & rating vault</h1>
+        <h1>Your personal space for </h1>
+        <h1>every movie you want to see </h1>
       </div>
       <p style={{ maxWidth: "32rem" }}>
-        Your ultimate watchlist manager — save what excites you, track what’s
-        next, and rate like a true cinephile.
+        Create and manage a watchlist that fits your taste. Save now, watch
+        later, never forget a film again.
       </p>
       <Link to="/dashboard">
         <ActionButton

@@ -14,8 +14,8 @@ function Footer({ children }) {
     <footer style={footerStyle}>
       <Logo />
       <p style={{ fontSize: "0.875rem", opacity: 0.7, textAlign: "center" }}>
-        Discover your next favorite flick, keep your must-watch list tidy, and
-        get star-studded reviews — your ultimate movie companion awaits!
+        Save films you’re excited about, explore what’s next, and build a
+        watchlist that actually works for you.
       </p>
       {children}
     </footer>
