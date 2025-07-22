@@ -12,6 +12,5 @@
 body {
   background-color: var(--background-clr);
   color: var(--text-clr);
-  width: min(80rem, 100% - 2.5rem);
   margin-inline: auto;
 }
