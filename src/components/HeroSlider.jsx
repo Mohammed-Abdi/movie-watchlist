@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ActionButton from "./ActionButton";
 import Star from "../assets/Star";
+import LoadingAnimation from "../assets/LoadingAnimation";
 
 function HeroSlider({ movies }) {
   const sliderRef = useRef();
@@ -26,6 +27,22 @@ function HeroSlider({ movies }) {
       }
     },
   };
+
+  if (!movies || movies?.length === 0)
+    return (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          gap: "1.25rem",
+          alignItems: "center",
+          minHeight: "80vh",
+        }}
+      >
+        <LoadingAnimation style={{ opacity: 0.7 }} />
+      </div>
+    );
 
   return (
     <Slider ref={sliderRef} {...settings}>

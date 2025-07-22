@@ -1,6 +1,23 @@
+import LoadingAnimation from "../assets/LoadingAnimation";
 import Card from "./card/Card";
 
 function TopRatedTvShows({ movies }) {
+  if (!movies || movies?.length === 0)
+    return (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          gap: "1.25rem",
+          alignItems: "center",
+          minHeight: "225px",
+        }}
+      >
+        <LoadingAnimation style={{ opacity: 0.7 }} />
+      </div>
+    );
+
   return (
     <div
       style={{
