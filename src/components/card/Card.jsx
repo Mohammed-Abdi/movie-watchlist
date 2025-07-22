@@ -1,10 +1,18 @@
 import { Link } from "react-router-dom";
 import Star from "../../assets/Star";
 import styles from "./Card.module.css";
+import { useContext } from "react";
+import { MovieContext } from "../../context/MovieContext";
 
 function Card({ movie }) {
+  const { dispatch } = useContext(MovieContext);
   return (
-    <Link to className={styles.cardWrapper} style={{ color: "inherit" }}>
+    <Link
+      to
+      className={styles.cardWrapper}
+      style={{ color: "inherit" }}
+      onClick={() => dispatch({ type: "SET_CURRENT_MOVIE", payload: movie })}
+    >
       <div className={styles.ratingBadge}>
         <Star
           style={{ color: "#E7BF36", width: "16px", height: "16px" }}
