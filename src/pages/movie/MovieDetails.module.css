@@ -1,3 +1,12 @@
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.625rem;
+  align-items: center;
+  min-height: 100vh;
+}
+
 .backgroundImage {
   position: relative;
   z-index: -1;
@@ -63,6 +72,31 @@
   align-items: center;
   gap: 0.25rem;
   font-weight: 500;
+}
+
+.ageRating {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.overview {
+  max-width: 50rem;
+  opacity: 0.7;
+}
+
+.genres {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.genres span {
+  background-color: #00ffff31;
+  padding: 0.5rem 1rem;
+  border-radius: 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  width: fit-content;
 }
 
 @media (max-width: 48rem) {
