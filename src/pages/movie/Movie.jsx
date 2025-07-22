@@ -6,6 +6,7 @@ import Star from "../../assets/Star";
 import ActionButton from "../../components/ActionButton";
 import Footer from "../../components/Footer";
 import { fetchTvGenres } from "../../utils/fetchTvGenres";
+import { fetchMovieGenres } from "../../utils/fetchMovieGenres";
 
 function Movie() {
   const [tvGenres, setTvGenres] = useState([]);
@@ -14,14 +15,18 @@ function Movie() {
   useEffect(() => {
     async function loadGenres() {
       const tv = await fetchTvGenres();
-      const movie = await fetchMovieGenre;
-      setTvGenres(data);
+      const movie = await fetchMovieGenres();
+
+      setTvGenres(tv);
+      setMovieGenres(movie);
     }
     loadGenres();
   }, []);
 
   const { movie } = useContext(MovieContext);
-  console.log(movie);
+
+  const genres = movie.isTvShow ? tvGenres : movieGenres;
+
   return (
     <main className={styles.Movie}>
       <div className={styles.backgroundImage}>
