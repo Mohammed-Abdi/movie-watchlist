@@ -39,6 +39,7 @@ function Card({ movie, isTvShow }) {
         className={styles.poster}
         src={`https://image.tmdb.org/t/p/w200${movie?.poster_path}`}
         alt={`${movie?.title} poster`}
+        loading="eager"
         width={150}
       />
     </Link>
