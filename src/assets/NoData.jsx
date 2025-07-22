@@ -1,7 +1,7 @@
 import Lottie from "lottie-react";
 import SleepyCat from "../assets/json/SleepyCat.json";
 
-function NoData({ text }) {
+function NoData({ text, style }) {
   return (
     <div
       style={{
@@ -10,6 +10,7 @@ function NoData({ text }) {
         alignItems: "center",
         width: "min(20rem, 100%)",
         marginInline: "auto",
+        ...style,
       }}
     >
       <div className="w-full max-w-xl mx-auto" style={{ marginInline: "3rem" }}>

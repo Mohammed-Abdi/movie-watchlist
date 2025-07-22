@@ -8,8 +8,7 @@ import NoData from "../../assets/NoData";
 
 function Notifications() {
   return (
-    <main className={styles.Notifications}>
-      {" "}
+    <main className={styles.notifications}>
       <NavBar
         style={{
           justifyContent: "none",
@@ -23,7 +22,12 @@ function Notifications() {
         </Link>
         <Logo text="Notifications" />
       </NavBar>
-      <NoData text="You're all caught up. No new notifications" />
+      <div className={styles.body}>
+        <NoData
+          style={{ marginBlock: "auto", paddingBottom: "3rem" }}
+          text="You're all caught up. No new notifications"
+        />
+      </div>
     </main>
   );
 }

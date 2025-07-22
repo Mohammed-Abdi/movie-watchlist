@@ -4,6 +4,7 @@ import NavBar from "../../components/navBar";
 import SecondaryButton from "../../components/SecondaryButton";
 import styles from "./Watchlist.module.css";
 import Logo from "../../components/Logo";
+import NoData from "../../assets/NoData";
 
 function Watchlist() {
   return (
@@ -21,6 +22,12 @@ function Watchlist() {
         </Link>
         <Logo text="Your WatchList" />
       </NavBar>
+      <div className={styles.body}>
+        <NoData
+          style={{ marginBlock: "auto", paddingBottom: "3rem" }}
+          text="You haven't added anything to your watchlist!"
+        />
+      </div>
     </main>
   );
 }
