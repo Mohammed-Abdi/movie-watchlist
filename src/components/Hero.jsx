@@ -8,6 +8,7 @@ const heroStyle = {
   gap: "1.25rem",
   textAlign: "center",
   transform: "translateY(-1.25rem)",
+  marginTop: "30vh",
 };
 
 function Hero() {
@@ -17,9 +18,9 @@ function Hero() {
         <h1>Your personal movie</h1>
         <h1>watchlist & rating vault</h1>
       </div>
-      <p>
-        Track what you’ve seen, save what you love, and rate like a critic — all
-        in one personal movie vault.
+      <p style={{ maxWidth: "32rem" }}>
+        Your ultimate watchlist manager — save what excites you, track what’s
+        next, and rate like a true cinephile.
       </p>
       <Link to="/dashboard">
         <ActionButton
