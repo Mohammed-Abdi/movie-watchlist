@@ -4,14 +4,19 @@ import styles from "./Card.module.css";
 import { useContext } from "react";
 import { MovieContext } from "../../context/MovieContext";
 
-function Card({ movie }) {
+function Card({ movie, isTvShow }) {
   const { dispatch } = useContext(MovieContext);
+
+  const selectedMovie = { ...movie, isTvShow: isTvShow ? true : false };
+
   return (
     <Link
       to={`/dashboard/movie/${movie.id}`}
       className={styles.cardWrapper}
       style={{ color: "inherit" }}
-      onClick={() => dispatch({ type: "SET_CURRENT_MOVIE", payload: movie })}
+      onClick={() =>
+        dispatch({ type: "SET_CURRENT_MOVIE", payload: selectedMovie })
+      }
     >
       <div className={styles.ratingBadge}>
         <Star

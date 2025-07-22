@@ -39,7 +39,7 @@ function TopRatedTvShows({ movies }) {
         }}
       >
         {movies.map((movie) => {
-          return <Card key={movie.id} movie={movie} />;
+          return <Card key={movie.id} movie={movie} isTvShow={true} />;
         })}
       </div>
     </div>
