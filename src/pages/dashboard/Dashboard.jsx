@@ -4,6 +4,7 @@ import NavBar from "../../components/navBar";
 import Utilities from "../../components/Utilities";
 import styles from "./Dashboard.module.css";
 import { fetchTrendingMoviesWeekly } from "../../utils/fetchTrendingMoviesWeekly";
+import HeroSlider from "../../components/HeroSlider";
 
 function Dashboard() {
   const [weeklyTrendingMovies, setWeeklyTrendingMovies] = useState([]);
@@ -24,16 +25,7 @@ function Dashboard() {
         <Logo />
         <Utilities />
       </NavBar>
-      <div className={styles.trendingMovies}>
-        {weeklyTrendingMovies.map((movie) => (
-          <div>
-            <img
-              src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-              alt={movie.title}
-            />
-          </div>
-        ))}
-      </div>
+      <HeroSlider movies={weeklyTrendingMovies} />
     </main>
   );
 }
