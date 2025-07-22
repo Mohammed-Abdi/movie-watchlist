@@ -35,7 +35,7 @@ function HeroSlider({ movies }) {
             src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
             alt={movie.title}
             loading={index < 3 ? "eager" : "lazy"}
-            style={{ height: "90vh", objectFit: "cover", width: "100%" }}
+            style={{ height: "80vh", objectFit: "cover", width: "100%" }}
           />
           <div
             style={{
