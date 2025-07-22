@@ -1,0 +1,29 @@
+.cardWrapper {
+  position: relative;
+}
+
+.ratingBadge {
+  display: flex;
+  gap: 0.125rem;
+  align-items: center;
+  background-color: #0000009d;
+  padding-inline: 0.15rem 0.625rem;
+  border-radius: 0.25rem;
+  text-shadow: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  width: fit-content;
+  position: absolute;
+  right: 0.25rem;
+  top: 0.25rem;
+}
+
+.starIcon {
+  color: #e7bf36;
+  width: 16px;
+  height: 16px;
+}
+
+.poster {
+  border-radius: 0.25rem;
+}
