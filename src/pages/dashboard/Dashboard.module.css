@@ -1,3 +1,14 @@
 .dashboard {
   min-height: 100vh;
 }
+
+.trendingMovies {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.image {
+  border-radius: 0.5rem;
+}
