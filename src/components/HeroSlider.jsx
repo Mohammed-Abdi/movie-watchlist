@@ -1,4 +1,3 @@
-import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -20,11 +19,12 @@ function HeroSlider({ movies }) {
 
   return (
     <Slider {...settings}>
-      {movies.map((movie) => (
+      {movies.map((movie, index) => (
         <div key={movie.id} style={{ position: "relative" }}>
           <img
             src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
             alt={movie.title}
+            loading={index < 2 ? "eager" : "lazy"}
             style={{ height: "80vh", objectFit: "cover", width: "100%" }}
           />
           <div
