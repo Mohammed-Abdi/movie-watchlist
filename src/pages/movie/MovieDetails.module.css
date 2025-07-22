@@ -9,6 +9,7 @@
 
 .backgroundImage {
   position: relative;
+  min-height: 40vh;
   z-index: -1;
 }
 
