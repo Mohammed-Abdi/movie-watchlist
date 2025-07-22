@@ -6,6 +6,8 @@ import styles from "./Dashboard.module.css";
 import { fetchTrendingMoviesWeekly } from "../../utils/fetchTrendingMoviesWeekly";
 import HeroSlider from "../../components/HeroSlider";
 import WeeklyTrendingMovies from "../../components/WeeklyTrendingMovies";
+import { fetchTopRatedMovies } from "../../utils/fetchTopRatedMovies";
+import TopRatedMovies from "../../components/TopRatedMovies";
 
 function Dashboard() {
   const [weeklyTrendingMovies, setWeeklyTrendingMovies] = useState([]);
@@ -18,7 +20,15 @@ function Dashboard() {
     loadMovies();
   }, []);
 
-  console.log(weeklyTrendingMovies);
+  const [topRatedMovies, setTopRatedMovies] = useState([]);
+
+  useEffect(() => {
+    async function loadMovies() {
+      const data = await fetchTopRatedMovies();
+      setTopRatedMovies(data);
+    }
+    loadMovies();
+  }, []);
 
   return (
     <main className={styles.dashboard}>
@@ -26,7 +36,11 @@ function Dashboard() {
         <Logo />
         <Utilities />
       </NavBar>
+
       <HeroSlider movies={weeklyTrendingMovies} />
+
+      <TopRatedMovies movies={topRatedMovies} />
+
       <WeeklyTrendingMovies movies={weeklyTrendingMovies} />
     </main>
   );
