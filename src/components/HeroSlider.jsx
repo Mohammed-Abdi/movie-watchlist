@@ -37,7 +37,7 @@ function HeroSlider({ movies }) {
           justifyContent: "center",
           gap: "0.625rem",
           alignItems: "center",
-          minHeight: "80vh",
+          minHeight: "100vh",
         }}
       >
         <LoadingAnimation style={{ opacity: 0.7 }} />
