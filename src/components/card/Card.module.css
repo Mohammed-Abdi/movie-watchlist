@@ -47,6 +47,7 @@
 .poster {
   border-radius: 0.25rem;
   transition: transform 0.3s ease-in-out;
+  min-height: 220px;
 }
 
 @media (min-width: 48rem) {
