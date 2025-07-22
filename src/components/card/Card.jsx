@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import Star from "../../assets/Star";
 import styles from "./Card.module.css";
 
 function Card({ movie }) {
   return (
-    <div className={styles.cardWrapper}>
+    <Link to className={styles.cardWrapper} style={{ color: "inherit" }}>
       <div className={styles.ratingBadge}>
         <Star
           style={{ color: "#E7BF36", width: "16px", height: "16px" }}
@@ -23,7 +24,7 @@ function Card({ movie }) {
         alt={`${movie.title} poster`}
         width={150}
       />
-    </div>
+    </Link>
   );
 }
 
