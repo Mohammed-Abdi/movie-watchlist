@@ -12,3 +12,20 @@
   color: inherit;
   width: 100%;
 }
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-45%);
+  left: 1.25rem;
+}
+
+@media (max-width: 48rem) {
+  .searchInput {
+    background: none;
+    padding-inline: 2rem;
+  }
+  .searchIcon {
+    left: 0;
+  }
+}

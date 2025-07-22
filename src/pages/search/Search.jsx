@@ -33,14 +33,7 @@ function Search() {
             marginInline: "auto",
           }}
         >
-          <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              transform: "translateY(-45%)",
-              left: "1.25rem",
-            }}
-          >
+          <div className={styles.searchIcon}>
             <SearchIcon
               style={{ width: "18px", height: "18px", opacity: 0.7 }}
             />
