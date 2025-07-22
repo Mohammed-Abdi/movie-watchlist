@@ -74,7 +74,7 @@ function HeroSlider({ movies }) {
               textShadow: "1px 1px 4px #00000059",
             }}
           >
-            <h1 style={{ maxWidth: "30rem" }}>{movie.title}</h1>
+            <h1 style={{ maxWidth: "40rem" }}>{movie.title}</h1>
             <p
               style={{
                 maxWidth: "40rem",
