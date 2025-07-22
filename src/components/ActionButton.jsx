@@ -15,7 +15,7 @@ function ActionButton({ type, children, onClick, style }) {
       onClick={onClick}
       style={{ ...buttonStyle, ...style }}
     >
-      {children}
+      <span style={{ whiteSpace: "nowrap" }}>{children}</span>
     </button>
   );
 }
