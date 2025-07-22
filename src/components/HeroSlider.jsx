@@ -1,38 +1,47 @@
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import ActionButton from "./ActionButton";
 
 function HeroSlider({ movies }) {
+  const settings = {
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    dots: false,
+    fade: true,
+    pauseOnHover: false,
+  };
+
   return (
-    <Carousel
-      autoPlay
-      infiniteLoop
-      interval={5000}
-      showThumbs={false}
-      showStatus={false}
-      showIndicators={false}
-    >
+    <Slider {...settings}>
       {movies.map((movie) => (
         <div key={movie.id} style={{ position: "relative" }}>
           <img
             src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
             alt={movie.title}
-            style={{ maxHeight: "80vh", objectFit: "cover", width: "100%" }}
+            style={{ height: "80vh", objectFit: "cover", width: "100%" }}
           />
           <div
             style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "1.25rem",
-              justifyContent: "center",
               position: "absolute",
               bottom: 0,
               left: 0,
               height: "100%",
               width: "100%",
-              background: "linear-gradient(#000000ff, transparent, #000000ff)",
-              padding: "2.5rem",
-              textAlign: "left",
+              background:
+                "linear-gradient(to top, rgba(0, 0, 0, 1), transparent, rgba(0, 0, 0, 1))",
+              padding: "1.25rem",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              gap: "1.25rem",
+              textShadow: "1px 1px 4px rgba(0, 0, 0, 0.35)",
             }}
           >
             <h1 style={{ maxWidth: "30rem" }}>{movie.title}</h1>
@@ -47,6 +56,7 @@ function HeroSlider({ movies }) {
               style={{
                 padding: "0.75rem 3rem",
                 fontSize: "1rem",
+                maxWidth: "fit-content",
               }}
             >
               Add to Watchlist
@@ -54,7 +64,7 @@ function HeroSlider({ movies }) {
           </div>
         </div>
       ))}
-    </Carousel>
+    </Slider>
   );
 }
 
