@@ -1,12 +1,23 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "./Movie.module.css";
 import { MovieContext } from "../../context/MovieContext";
 import Calendar from "../../assets/Calendar";
 import Star from "../../assets/Star";
 import ActionButton from "../../components/ActionButton";
 import Footer from "../../components/Footer";
+import { fetchTvGenres } from "../../utils/fetchTvGenres";
 
 function Movie() {
+  const [tvGenres, setTvGenres] = useState([]);
+
+  useEffect(() => {
+    async function loadGenres() {
+      const data = await fetchTvGenres();
+      setTvGenres(data);
+    }
+    loadGenres();
+  }, []);
+
   const { movie } = useContext(MovieContext);
   console.log(movie);
   return (
