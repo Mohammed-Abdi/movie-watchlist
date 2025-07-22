@@ -11,6 +11,12 @@ function Card({ movie }) {
         />
         {movie.vote_average.toFixed(1)}
       </div>
+      <div className={styles.detail}>
+        <p style={{ fontWeight: 500 }}>{movie.title}</p>
+        <p style={{ fontSize: "0.75rem", opacity: 0.7 }}>
+          {movie.release_date.split("-").at(0)}
+        </p>
+      </div>
       <img
         className={styles.poster}
         src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
