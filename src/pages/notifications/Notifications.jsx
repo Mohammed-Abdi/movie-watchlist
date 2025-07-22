@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import NavBar from "../../components/navBar";
 import styles from "./Notifications.module.css";
-import SecondaryButton from "../../components/SecondaryButton";
+import SecondaryButton from "../../components/secondary-button/SecondaryButton";
 import Back from "../../assets/Back";
 import Logo from "../../components/Logo";
 import NoData from "../../assets/NoData";
@@ -16,7 +16,7 @@ function Notifications() {
         }}
       >
         <Link to="/dashboard" style={{ color: "inherit" }}>
-          <SecondaryButton>
+          <SecondaryButton type="circle">
             <Back style={{ opacity: 0.8 }} />
           </SecondaryButton>
         </Link>

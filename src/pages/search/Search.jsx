@@ -3,7 +3,7 @@ import styles from "./Search.module.css";
 import Back from "../../assets/Back";
 import NavBar from "../../components/navBar";
 import SearchIcon from "../../assets/Search";
-import SecondaryButton from "../../components/SecondaryButton";
+import SecondaryButton from "../../components/secondary-button/SecondaryButton";
 import { useEffect, useRef } from "react";
 
 function Search() {
@@ -22,7 +22,7 @@ function Search() {
         }}
       >
         <Link to="/dashboard" style={{ color: "inherit" }}>
-          <SecondaryButton>
+          <SecondaryButton type="circle">
             <Back style={{ opacity: 0.8 }} />
           </SecondaryButton>
         </Link>
