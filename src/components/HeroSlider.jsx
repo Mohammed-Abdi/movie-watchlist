@@ -35,11 +35,12 @@ function HeroSlider({ movies }) {
               height: "100%",
               width: "100%",
               background:
-                "linear-gradient(to top, rgba(0, 0, 0, 1), transparent, rgba(0, 0, 0, 1))",
+                "linear-gradient(to top, rgba(0, 0, 0, 1), transparent)",
               padding: "1.25rem",
               display: "flex",
               flexDirection: "column",
-              justifyContent: "center",
+              justifyContent: "end",
+              paddingBottom: "5rem",
               gap: "1.25rem",
               textShadow: "1px 1px 4px rgba(0, 0, 0, 0.35)",
             }}

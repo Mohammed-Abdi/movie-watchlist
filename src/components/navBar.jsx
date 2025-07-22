@@ -2,7 +2,7 @@ const navBarStyle = {
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  padding: "1.25rem",
+  padding: "0.625rem 1.25rem",
 };
 
 function NavBar({ children, style }) {
