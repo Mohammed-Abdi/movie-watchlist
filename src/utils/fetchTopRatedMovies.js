@@ -1,0 +1,9 @@
+const apiKey = import.meta.env.VITE_TMDB_API_KEY;
+
+export async function fetchTopRatedMovies() {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`
+  );
+  const data = await res.json();
+  return data.results;
+}
