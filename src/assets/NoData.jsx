@@ -21,7 +21,7 @@ function NoData({ text, style }) {
           className="w-full h-auto"
         />
       </div>
-      <p style={{ transform: "translateY(-3rem)" }}>
+      <p style={{ transform: "translateY(-3rem)", textAlign: "center" }}>
         {text || "No data found"}
       </p>
     </div>
