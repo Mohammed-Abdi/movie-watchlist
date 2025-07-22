@@ -1,6 +1,6 @@
 const apiKey = import.meta.env.VITE_TMDB_API_KEY;
 
-export async function fetchTvGenres() {
+export async function fetchMovieGenres() {
   const res = await fetch(
     `https://api.themoviedb.org/3/genre/tv/list?api_key=${apiKey}&language=en-US
 `

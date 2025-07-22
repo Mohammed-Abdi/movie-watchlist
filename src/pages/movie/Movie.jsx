@@ -9,10 +9,12 @@ import { fetchTvGenres } from "../../utils/fetchTvGenres";
 
 function Movie() {
   const [tvGenres, setTvGenres] = useState([]);
+  const [movieGenres, setMovieGenres] = useState([]);
 
   useEffect(() => {
     async function loadGenres() {
-      const data = await fetchTvGenres();
+      const tv = await fetchTvGenres();
+      const movie = await fetchMovieGenre;
       setTvGenres(data);
     }
     loadGenres();
