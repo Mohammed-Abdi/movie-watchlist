@@ -7,7 +7,6 @@ import SecondaryButton from "./secondary-button/SecondaryButton";
 const utilitiesStyle = {
   display: "flex",
   alignItems: "center",
-  gap: "0.25rem",
 };
 
 function Utilities() {
