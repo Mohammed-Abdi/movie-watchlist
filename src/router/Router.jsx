@@ -5,8 +5,12 @@ import Notifications from "../pages/notifications/Notifications";
 import Search from "../pages/search/Search";
 import Watchlist from "../pages/watchlist/Watchlist";
 import NotFound from "../pages/notFound";
+import { useContext } from "react";
+import { MovieContext } from "../context/MovieContext";
+import Movie from "../pages/movie/Movie";
 
 function Router() {
+  const { movie } = useContext(MovieContext);
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -14,6 +18,7 @@ function Router() {
       <Route path="/search" element={<Search />} />
       <Route path="/notifications" element={<Notifications />} />
       <Route path="/watchlist" element={<Watchlist />} />
+      <Route path={`/dashboard/movie/${movie?.id}`} element={<Movie />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

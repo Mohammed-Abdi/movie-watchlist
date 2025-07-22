@@ -8,7 +8,7 @@ function Card({ movie }) {
   const { dispatch } = useContext(MovieContext);
   return (
     <Link
-      to
+      to={`/dashboard/movie/${movie.id}`}
       className={styles.cardWrapper}
       style={{ color: "inherit" }}
       onClick={() => dispatch({ type: "SET_CURRENT_MOVIE", payload: movie })}
