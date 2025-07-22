@@ -12,6 +12,7 @@ import { fetchPopularMovies } from "../../utils/fetchPopularMovies";
 import PopularMovies from "../../components/PopularMovies";
 import { fetchTopRatedTvShows } from "../../utils/fetchTopRatedTvShows";
 import TopRatedTvShows from "../../components/TopRatedTvShows";
+import Footer from "../../components/Footer";
 
 function Dashboard() {
   const [mediaData, setMediaData] = useState({
@@ -61,6 +62,8 @@ function Dashboard() {
       <WeeklyTrendingMovies movies={mediaData.weeklyTrendingMovies} />
 
       <PopularMovies movies={mediaData.popularMovies} />
+
+      <Footer>&copy; 2025. Mohammed Abdi. All rights reserved</Footer>
     </main>
   );
 }
