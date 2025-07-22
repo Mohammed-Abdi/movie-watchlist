@@ -35,12 +35,15 @@ function HeroSlider({ movies }) {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          gap: "1.25rem",
+          gap: "0.625rem",
           alignItems: "center",
           minHeight: "80vh",
         }}
       >
         <LoadingAnimation style={{ opacity: 0.7 }} />
+        <p style={{ fontSize: "0.875rem", opacity: 0.7 }}>
+          One moment please...
+        </p>
       </div>
     );
 
