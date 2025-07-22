@@ -14,47 +14,36 @@ import { fetchTopRatedTvShows } from "../../utils/fetchTopRatedTvShows";
 import TopRatedTvShows from "../../components/TopRatedTvShows";
 
 function Dashboard() {
-  const [weeklyTrendingMovies, setWeeklyTrendingMovies] = useState([]);
+  const [mediaData, setMediaData] = useState({
+    weeklyTrendingMovies: [],
+    topRatedMovies: [],
+    popularMovies: [],
+    topRatedTvShows: [],
+  });
 
   useEffect(() => {
-    async function loadMovies() {
-      const data = await fetchTrendingMoviesWeekly();
-      setWeeklyTrendingMovies(data);
+    async function loadAllMediaData() {
+      try {
+        const [trending, topRated, popular, topRatedTV] = await Promise.all([
+          fetchTrendingMoviesWeekly(),
+          fetchTopRatedMovies(),
+          fetchPopularMovies(),
+          fetchTopRatedTvShows(),
+        ]);
+
+        setMediaData({
+          weeklyTrendingMovies: trending,
+          topRatedMovies: topRated,
+          popularMovies: popular,
+          topRatedTvShows: topRatedTV,
+        });
+      } catch (err) {
+        console.error("Failed to fetch media data", err);
+      }
     }
-    loadMovies();
+
+    loadAllMediaData();
   }, []);
-
-  const [topRatedMovies, setTopRatedMovies] = useState([]);
-
-  useEffect(() => {
-    async function loadMovies() {
-      const data = await fetchTopRatedMovies();
-      setTopRatedMovies(data);
-    }
-    loadMovies();
-  }, []);
-
-  const [popularMovies, setPopularMovies] = useState([]);
-
-  useEffect(() => {
-    async function loadMovies() {
-      const data = await fetchPopularMovies();
-      setPopularMovies(data);
-    }
-    loadMovies();
-  }, []);
-
-  const [topRatedTvShows, setTopRatedTvShows] = useState([]);
-
-  useEffect(() => {
-    async function loadMovies() {
-      const data = await fetchTopRatedTvShows();
-      setTopRatedTvShows(data);
-    }
-    loadMovies();
-  }, []);
-
-  console.log(topRatedTvShows);
 
   return (
     <main className={styles.dashboard}>
@@ -63,15 +52,15 @@ function Dashboard() {
         <Utilities />
       </NavBar>
 
-      <HeroSlider movies={weeklyTrendingMovies} />
+      <HeroSlider movies={mediaData.weeklyTrendingMovies} />
 
-      <TopRatedMovies movies={topRatedMovies} />
+      <TopRatedMovies movies={mediaData.topRatedMovies} />
 
-      <WeeklyTrendingMovies movies={weeklyTrendingMovies} />
+      <TopRatedTvShows movies={mediaData.topRatedTvShows} />
 
-      <PopularMovies movies={popularMovies} />
+      <WeeklyTrendingMovies movies={mediaData.weeklyTrendingMovies} />
 
-      <TopRatedTvShows movies={topRatedTvShows} />
+      <PopularMovies movies={mediaData.popularMovies} />
     </main>
   );
 }
