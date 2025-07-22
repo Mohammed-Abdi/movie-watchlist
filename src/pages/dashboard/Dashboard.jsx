@@ -8,6 +8,10 @@ import HeroSlider from "../../components/HeroSlider";
 import WeeklyTrendingMovies from "../../components/WeeklyTrendingMovies";
 import { fetchTopRatedMovies } from "../../utils/fetchTopRatedMovies";
 import TopRatedMovies from "../../components/TopRatedMovies";
+import { fetchPopularMovies } from "../../utils/fetchPopularMovies";
+import PopularMovies from "../../components/PopularMovies";
+import { fetchTopRatedTvShows } from "../../utils/fetchTopRatedTvShows";
+import TopRatedTvShows from "../../components/TopRatedTvShows";
 
 function Dashboard() {
   const [weeklyTrendingMovies, setWeeklyTrendingMovies] = useState([]);
@@ -30,6 +34,28 @@ function Dashboard() {
     loadMovies();
   }, []);
 
+  const [popularMovies, setPopularMovies] = useState([]);
+
+  useEffect(() => {
+    async function loadMovies() {
+      const data = await fetchPopularMovies();
+      setPopularMovies(data);
+    }
+    loadMovies();
+  }, []);
+
+  const [topRatedTvShows, setTopRatedTvShows] = useState([]);
+
+  useEffect(() => {
+    async function loadMovies() {
+      const data = await fetchTopRatedTvShows();
+      setTopRatedTvShows(data);
+    }
+    loadMovies();
+  }, []);
+
+  console.log(topRatedTvShows);
+
   return (
     <main className={styles.dashboard}>
       <NavBar>
@@ -42,6 +68,10 @@ function Dashboard() {
       <TopRatedMovies movies={topRatedMovies} />
 
       <WeeklyTrendingMovies movies={weeklyTrendingMovies} />
+
+      <PopularMovies movies={popularMovies} />
+
+      <TopRatedTvShows movies={topRatedTvShows} />
     </main>
   );
 }
