@@ -1,8 +1,8 @@
 import LoadingAnimation from "../assets/animation/LoadingAnimation";
 import Card from "./card/Card";
 
-function PopularMovies({ movies }) {
-  if (!movies || movies?.length === 0)
+function PopularMovies({ movies, isLoading, error }) {
+  if (isLoading && !error)
     return (
       <div
         style={{
@@ -17,6 +17,8 @@ function PopularMovies({ movies }) {
         <LoadingAnimation style={{ opacity: 0.7 }} />
       </div>
     );
+
+  if (!isLoading && error) return;
 
   return (
     <div

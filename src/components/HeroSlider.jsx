@@ -8,8 +8,9 @@ import LoadingAnimation from "../assets/animation/LoadingAnimation";
 import { UserContext } from "../context/UserContext";
 import AddBookmark from "../assets/icons/AddBookmark";
 import AddedBookmark from "../assets/icons/AddedBookmark";
+import NoData from "./NoData";
 
-function HeroSlider({ movies }) {
+function HeroSlider({ movies, isLoading, error }) {
   const { user, userDispatch } = useContext(UserContext);
   const sliderRef = useRef();
 
@@ -32,7 +33,7 @@ function HeroSlider({ movies }) {
     },
   };
 
-  if (!movies || movies?.length === 0)
+  if (isLoading && !error)
     return (
       <div
         style={{
@@ -48,6 +49,22 @@ function HeroSlider({ movies }) {
         <p style={{ fontSize: "0.875rem", opacity: 0.7 }}>
           One moment please...
         </p>
+      </div>
+    );
+
+  if (!isLoading && error)
+    return (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          gap: "0.625rem",
+          alignItems: "center",
+          minHeight: "100vh",
+        }}
+      >
+        <NoData text={error} />
       </div>
     );
 

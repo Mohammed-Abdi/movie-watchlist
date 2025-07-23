@@ -23,6 +23,9 @@ function MoviesExplore() {
     topRatedTvShows: [],
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,6 +44,7 @@ function MoviesExplore() {
   useEffect(() => {
     async function loadAllMediaData() {
       try {
+        setIsLoading(true);
         const [trending, topRated, popular, topRatedTV] = await Promise.all([
           fetchTrendingMoviesWeekly(),
           fetchTopRatedMovies(),
@@ -56,6 +60,11 @@ function MoviesExplore() {
         });
       } catch (err) {
         console.error("Failed to fetch media data", err);
+        setError(
+          "Oops! It looks like you're offline. Please check your internet connection and try again."
+        );
+      } finally {
+        setIsLoading(false);
       }
     }
 
@@ -73,15 +82,35 @@ function MoviesExplore() {
         <Utilities />
       </NavBar>
 
-      <HeroSlider movies={mediaData.weeklyTrendingMovies} />
+      <HeroSlider
+        movies={mediaData.weeklyTrendingMovies}
+        isLoading={isLoading}
+        error={error}
+      />
 
-      <TopRatedMovies movies={mediaData.topRatedMovies} />
+      <TopRatedMovies
+        movies={mediaData.topRatedMovies}
+        isLoading={isLoading}
+        error={error}
+      />
 
-      <TopRatedTvShows movies={mediaData.topRatedTvShows} />
+      <TopRatedTvShows
+        movies={mediaData.topRatedTvShows}
+        isLoading={isLoading}
+        error={error}
+      />
 
-      <WeeklyTrendingMovies movies={mediaData.weeklyTrendingMovies} />
+      <WeeklyTrendingMovies
+        movies={mediaData.weeklyTrendingMovies}
+        isLoading={isLoading}
+        error={error}
+      />
 
-      <PopularMovies movies={mediaData.popularMovies} />
+      <PopularMovies
+        movies={mediaData.popularMovies}
+        isLoading={isLoading}
+        error={error}
+      />
 
       <Footer>&copy; 2025. Mohammed Abdi. All rights reserved</Footer>
     </main>

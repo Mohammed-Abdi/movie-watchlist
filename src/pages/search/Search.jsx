@@ -12,12 +12,15 @@ import Tv from "../../assets/icons/Tv";
 import Movie from "../../assets/icons/Movie";
 import NoData from "../../components/NoData";
 import { SearchContext } from "../../context/SearchContext";
+import LoadingAnimation from "../../assets/animation/LoadingAnimation";
 
 function Search() {
   const { search, searchDispatch } = useContext(SearchContext);
   const [on, setOn] = useState("all");
   const [results, setResults] = useState([]);
   const [filteredResults, setFilteredResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
   const searchInput = useRef();
   const navigate = useNavigate();
 
@@ -27,8 +30,18 @@ function Search() {
 
   useEffect(() => {
     async function getQuery(search) {
-      const data = await fetchMoviesBySearch(search);
-      setResults(data);
+      try {
+        setIsLoading(true);
+        const data = await fetchMoviesBySearch(search);
+        setResults(data);
+      } catch (error) {
+        console.error(error.message);
+        setError(
+          "Oops! It looks like you're offline. Please check your internet connection and try again."
+        );
+      } finally {
+        setIsLoading(false);
+      }
     }
 
     if (!search || search?.length < 2) return;
@@ -37,7 +50,10 @@ function Search() {
   }, [search]);
 
   useEffect(() => {
-    if (!search) setResults([]);
+    if (!search) {
+      setResults([]);
+      setFilteredResults([]);
+    }
   }, [search]);
 
   useEffect(() => {
@@ -106,12 +122,14 @@ function Search() {
         >
           {results.length === 0 && !search
             ? "Find your favorite movies, and TV show"
-            : `All Results (${
+            : search.length > 1
+            ? `All Results (${
                 results.filter((result) => result.popularity > 1).length
-              })`}
+              })`
+            : "Find your favorite movies, and TV show"}
         </div>
 
-        {results.length !== 0 && (
+        {!isLoading && !error && results.length !== 0 && (
           <div
             className={`${styles.searchFilter} ${
               on === "movie" ? styles["searchFilter--active"] : ""
@@ -129,7 +147,7 @@ function Search() {
           </div>
         )}
 
-        {results.length !== 0 && (
+        {!isLoading && !error && results.length !== 0 && (
           <div
             className={`${styles.searchFilter} ${
               on === "tv" ? styles["searchFilter--active"] : ""
@@ -148,11 +166,44 @@ function Search() {
         )}
       </div>
 
-      {results.length === 0 && search && (
+      {!isLoading && !error && results.length === 0 && search.length > 1 && (
         <NoData
           style={{ marginTop: "15vh" }}
           text={`No results found for "${search}"`}
         />
+      )}
+
+      {isLoading && !error && (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            gap: "0.625rem",
+            alignItems: "center",
+            minHeight: "80vh",
+          }}
+        >
+          <LoadingAnimation style={{ opacity: 0.7 }} />
+          <p style={{ fontSize: "0.875rem", opacity: 0.7 }}>
+            One moment please...
+          </p>
+        </div>
+      )}
+
+      {!isLoading && error && (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            gap: "0.625rem",
+            alignItems: "center",
+            minHeight: "80vh",
+          }}
+        >
+          <NoData text={error} />
+        </div>
       )}
 
       <div className={styles.searchCardWrapper}>
