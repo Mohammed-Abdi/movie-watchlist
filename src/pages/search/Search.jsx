@@ -4,16 +4,17 @@ import Back from "../../assets/icons/Back";
 import NavBar from "../../components/NavBar";
 import SearchIcon from "../../assets/icons/Search";
 import SecondaryButton from "../../components/secondary-button/SecondaryButton";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { fetchMoviesBySearch } from "../../utils/fetchMoviesBySearch";
 import Card from "../../components/card/Card";
 import MacCommand from "../../assets/icons/MacCommand";
 import Tv from "../../assets/icons/Tv";
 import Movie from "../../assets/icons/Movie";
 import NoData from "../../components/NoData";
+import { SearchContext } from "../../context/SearchContext";
 
 function Search() {
-  const [query, setQuery] = useState("");
+  const { search, searchDispatch } = useContext(SearchContext);
   const [on, setOn] = useState("all");
   const [results, setResults] = useState([]);
   const [filteredResults, setFilteredResults] = useState([]);
@@ -25,19 +26,19 @@ function Search() {
   }, [results]);
 
   useEffect(() => {
-    async function search(query) {
-      const data = await fetchMoviesBySearch(query);
+    async function getQuery(search) {
+      const data = await fetchMoviesBySearch(search);
       setResults(data);
     }
 
-    if (!query || query?.length < 2) return;
+    if (!search || search?.length < 2) return;
 
-    search(query);
-  }, [query]);
+    getQuery(search);
+  }, [search]);
 
   useEffect(() => {
-    if (!query) setResults([]);
-  }, [query]);
+    if (!search) setResults([]);
+  }, [search]);
 
   useEffect(() => {
     searchInput.current.focus();
@@ -58,6 +59,8 @@ function Search() {
     };
   }, []);
 
+  console.log(results);
+
   return (
     <main className={styles.Search}>
       <NavBar className={styles.searchNavContainer}>
@@ -73,8 +76,13 @@ function Search() {
           </div>
           <input
             ref={searchInput}
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            value={search}
+            onChange={(e) =>
+              searchDispatch({
+                type: "SYNC_SEARCH_QUERY",
+                payload: e.target.value,
+              })
+            }
             type="text"
             placeholder="Search..."
             className={styles.searchInput}
@@ -96,7 +104,7 @@ function Search() {
             setOn("all");
           }}
         >
-          {results.length === 0 && !query
+          {results.length === 0 && !search
             ? "Find your favorite movies, and TV show"
             : `All Results (${
                 results.filter((result) => result.popularity > 1).length
@@ -140,8 +148,8 @@ function Search() {
         )}
       </div>
 
-      {results.length === 0 && query && (
-        <NoData text={`No results found for "${query}"`} />
+      {results.length === 0 && search && (
+        <NoData text={`No results found for "${search}"`} />
       )}
 
       <div className={styles.searchCardWrapper}>
