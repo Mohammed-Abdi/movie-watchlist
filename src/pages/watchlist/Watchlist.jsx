@@ -8,6 +8,7 @@ import NoData from "../../components/NoData";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { formatDateTime } from "../../services/formatDateTime";
+import Star from "../../assets/icons/Star";
 
 function Watchlist() {
   const { user } = useContext(UserContext);
@@ -47,7 +48,7 @@ function Watchlist() {
               are.
             </p>
             {user.watchList.map((list) => (
-              <div className={styles.wrapper}>
+              <div key={list.movie.id} className={styles.wrapper}>
                 <img
                   className={styles.poster}
                   src={`https://image.tmdb.org/t/p/w92${list.movie?.poster_path}`}
@@ -64,11 +65,30 @@ function Watchlist() {
                       ? list.movie?.title
                       : list.movie.original_name}
                   </p>
-                  <p style={{ opacity: 0.7, fontSize: "0.875rem" }}>
-                    {list.movie?.release_date
-                      ? list.movie?.release_date?.split("-").at(0)
-                      : list.movie?.first_air_date?.split("-").at(0)}
+
+                  <p style={{ fontSize: "0.875rem", opacity: 0.7 }}>
+                    {list.movie?.overview?.slice(0, 40)}
+                    {list.movie?.overview && "..."}
                   </p>
+
+                  <div className={styles.info}>
+                    <div className={styles.year}>
+                      {list.movie?.release_date
+                        ? list.movie?.release_date?.split("-").at(0)
+                        : list.movie?.first_air_date?.split("-").at(0)}
+                    </div>
+                    <div className={styles.rating}>
+                      <Star
+                        style={{
+                          color: "#E7BF36",
+                          width: "16px",
+                          height: "16px",
+                        }}
+                      />
+                      {list.movie?.vote_average?.toFixed(1)}
+                    </div>
+                  </div>
+
                   <p style={{ opacity: 0.5, fontSize: "0.75rem" }}>
                     Added on {formatDateTime(list.timestamp)}
                   </p>
