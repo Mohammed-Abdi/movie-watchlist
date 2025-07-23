@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Logo from "../../components/Logo";
-import NavBar from "../../components/navBar";
+import NavBar from "../../components/NavBar";
 import Utilities from "../../components/Utilities";
-import styles from "./Dashboard.module.css";
+import styles from "./MoviesExplore.module.css";
 import { fetchTrendingMoviesWeekly } from "../../utils/fetchTrendingMoviesWeekly";
 import HeroSlider from "../../components/HeroSlider";
 import WeeklyTrendingMovies from "../../components/WeeklyTrendingMovies";
@@ -14,7 +14,7 @@ import { fetchTopRatedTvShows } from "../../utils/fetchTopRatedTvShows";
 import TopRatedTvShows from "../../components/TopRatedTvShows";
 import Footer from "../../components/Footer";
 
-function Dashboard() {
+function MoviesExplore() {
   const [mediaData, setMediaData] = useState({
     weeklyTrendingMovies: [],
     topRatedMovies: [],
@@ -47,7 +47,7 @@ function Dashboard() {
   }, []);
 
   return (
-    <main className={styles.dashboard}>
+    <main className={styles.MoviesExplore}>
       <NavBar>
         <Logo />
         <Utilities />
@@ -68,4 +68,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default MoviesExplore;

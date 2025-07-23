@@ -22,7 +22,7 @@ function Hero() {
         Create and manage a watchlist that fits your taste. Save now, watch
         later, never forget a film again.
       </p>
-      <Link to="/dashboard">
+      <Link to="/movies-explore">
         <ActionButton
           style={{
             padding: "0.75rem 3rem",
