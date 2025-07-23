@@ -7,7 +7,7 @@ import Watchlist from "../pages/watchlist/Watchlist";
 import NotFound from "../pages/notFound";
 import { useContext } from "react";
 import { MovieContext } from "../context/MovieContext";
-import MovieDetails from "../pages/movie/MovieDetails";
+import MovieDetails from "../pages/movie-details/MovieDetails";
 
 function Router() {
   const { movie } = useContext(MovieContext);
