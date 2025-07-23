@@ -23,6 +23,7 @@ function reducer(state, action) {
             timestamp: action.payload.timestamp,
           },
         ],
+        newNotificationCount: state.newNotificationCount + 1,
       };
     case "REMOVE_MOVIE_FROM_WATCHLIST":
       return {
