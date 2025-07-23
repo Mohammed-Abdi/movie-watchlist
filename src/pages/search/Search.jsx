@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./Search.module.css";
 import Back from "../../assets/Back";
-import NavBar from "../../components/navBar";
+import NavBar from "../../components/NavBar";
 import SearchIcon from "../../assets/Search";
 import SecondaryButton from "../../components/secondary-button/SecondaryButton";
 import { useEffect, useRef, useState } from "react";
