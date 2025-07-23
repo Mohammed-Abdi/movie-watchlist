@@ -100,6 +100,7 @@ function Watchlist() {
                     userDispatch({
                       type: "REMOVE_MOVIE_FROM_WATCHLIST",
                       payload: {
+                        type: "remove",
                         id: list.movie.id,
                         notification: `You removed$${
                           list.movie?.title
@@ -108,6 +109,7 @@ function Watchlist() {
                         }$ ${
                           list.movie?.title ? "movie" : "tv series"
                         } from your watchlist`,
+                        timestamp: new Date().toISOString(),
                       },
                     })
                   }

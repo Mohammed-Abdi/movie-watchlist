@@ -30,7 +30,14 @@ function reducer(state, action) {
         watchList: state.watchList.filter(
           (list) => list.movie.id !== action.payload.id
         ),
-        notifications: [...state.notifications, action.payload.notification],
+        notifications: [
+          ...state.notifications,
+          {
+            type: action.payload.type,
+            message: action.payload.notification,
+            timestamp: action.payload.timestamp,
+          },
+        ],
       };
     case "CLEAR_NOTIFICATIONS":
       return { ...state, newNotificationCount: 0 };
