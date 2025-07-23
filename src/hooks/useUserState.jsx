@@ -12,7 +12,13 @@ function reducer(state, action) {
       return {
         ...state,
         watchList: [...state.watchList, action.payload.movie],
-        notifications: [...state.notifications, action.payload.notification],
+        notifications: [
+          ...state.notifications,
+          {
+            message: action.payload.notification,
+            timestamp: action.payload.timestamp,
+          },
+        ],
       };
     case "REMOVE_MOVIE_FROM_WATCHLIST":
       return {

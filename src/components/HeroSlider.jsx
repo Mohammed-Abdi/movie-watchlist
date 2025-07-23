@@ -1,12 +1,14 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ActionButton from "./ActionButton";
 import Star from "../assets/icons/Star";
 import LoadingAnimation from "../assets/animation/LoadingAnimation";
+import { UserContext } from "../context/UserContext";
 
 function HeroSlider({ movies }) {
+  const { userDispatch } = useContext(UserContext);
   const sliderRef = useRef();
 
   const settings = {
@@ -118,6 +120,18 @@ function HeroSlider({ movies }) {
                 maxWidth: "fit-content",
                 borderRadius: "0.5rem",
               }}
+              onClick={() =>
+                userDispatch({
+                  type: "ADD_MOVIE_TO_WATCHLIST",
+                  payload: {
+                    movie,
+                    notification: `You added the ${
+                      movie?.title ? movie?.title : movie.original_name
+                    } to your watchlist`,
+                    timestamp: new Date().toISOString(),
+                  },
+                })
+              }
             >
               Add to Watchlist
             </ActionButton>
