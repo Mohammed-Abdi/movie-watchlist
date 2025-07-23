@@ -59,8 +59,6 @@ function Search() {
     };
   }, []);
 
-  console.log(results);
-
   return (
     <main className={styles.Search}>
       <NavBar className={styles.searchNavContainer}>
