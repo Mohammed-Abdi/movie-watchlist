@@ -13,22 +13,19 @@ const utilitiesStyle = {
 function Utilities() {
   return (
     <div style={utilitiesStyle}>
-      <Link to="/movies-explore/search" style={{ color: "inherit" }}>
+      <Link to="search" style={{ color: "inherit" }}>
         <SecondaryButton type="circle">
           <Search style={{ opacity: 0.8 }} />
         </SecondaryButton>
       </Link>
 
-      <Link to="/movies-explore/notifications" style={{ color: "inherit" }}>
+      <Link to="notifications" style={{ color: "inherit" }}>
         <SecondaryButton type="circle">
           <Bell style={{ opacity: 0.8 }} />
         </SecondaryButton>
       </Link>
 
-      <Link
-        to="/movies-explore/watchlist"
-        style={{ color: "inherit", textDecoration: "none" }}
-      >
+      <Link to="watchlist" style={{ color: "inherit", textDecoration: "none" }}>
         <SecondaryButton>
           <Bookmark style={{ opacity: 0.8 }} /> Watchlist
         </SecondaryButton>
