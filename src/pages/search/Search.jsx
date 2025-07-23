@@ -69,13 +69,31 @@ function Search() {
           />
         </div>
       </NavBar>
-      <div style={{ marginTop: "3rem" }}>G</div>
+
+      <div style={{ marginTop: "5rem", paddingInline: "1.25rem" }}>
+        <div
+          style={{
+            backgroundColor: "#00ffff31",
+            padding: "0.5rem 1rem",
+            borderRadius: "1.25rem",
+            fontSize: "0.875rem",
+            fontWeight: 500,
+            width: "fit-content",
+          }}
+        >
+          {results.length === 0
+            ? "Find your favorite movies, and TV show"
+            : `${results.length} Results Found`}
+        </div>
+      </div>
+
       <div
         style={{
           display: "flex",
           alignItems: "center",
           gap: "1.25rem",
           flexWrap: "wrap",
+          padding: "1.5rem 1.25rem",
         }}
       >
         {results.map((result) => {
