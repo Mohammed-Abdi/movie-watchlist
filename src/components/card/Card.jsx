@@ -23,7 +23,7 @@ function Card({ movie, isTvShow }) {
           style={{ color: "#E7BF36", width: "16px", height: "16px" }}
           className={styles.starIcon}
         />
-        {movie?.vote_average.toFixed(1)}
+        {movie?.vote_average?.toFixed(1)}
       </div>
       <div className={styles.detail}>
         <p style={{ fontWeight: 500 }}>

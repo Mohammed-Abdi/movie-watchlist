@@ -4,10 +4,31 @@ import Back from "../../assets/Back";
 import NavBar from "../../components/navBar";
 import SearchIcon from "../../assets/Search";
 import SecondaryButton from "../../components/secondary-button/SecondaryButton";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { fetchMoviesBySearch } from "../../utils/fetchMoviesBySearch";
+import Card from "../../components/card/Card";
 
 function Search() {
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
   const searchInput = useRef();
+
+  useEffect(() => {
+    async function search(query) {
+      const data = await fetchMoviesBySearch(query);
+      setResults(data);
+    }
+
+    if (!query || query?.length < 2) return;
+
+    search(query);
+  }, [query]);
+
+  useEffect(() => {
+    if (!query) setResults([]);
+  }, [query]);
+
+  console.log(results);
 
   useEffect(() => {
     searchInput.current.focus();
@@ -40,12 +61,27 @@ function Search() {
           </div>
           <input
             ref={searchInput}
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
             type="text"
             placeholder="Search..."
             className={styles.searchInput}
           />
         </div>
       </NavBar>
+      <div style={{ marginTop: "3rem" }}>G</div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "1.25rem",
+          flexWrap: "wrap",
+        }}
+      >
+        {results.map((result) => {
+          return <Card movie={result} />;
+        })}
+      </div>
     </main>
   );
 }
