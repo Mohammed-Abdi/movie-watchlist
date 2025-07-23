@@ -8,12 +8,20 @@ import { useEffect, useRef, useState } from "react";
 import { fetchMoviesBySearch } from "../../utils/fetchMoviesBySearch";
 import Card from "../../components/card/Card";
 import MacCommand from "../../assets/icons/MacCommand";
+import Tv from "../../assets/icons/Tv";
+import Movie from "../../assets/icons/Movie";
 
 function Search() {
   const [query, setQuery] = useState("");
+  const [on, setOn] = useState("all");
   const [results, setResults] = useState([]);
+  const [filteredResults, setFilteredResults] = useState([]);
   const searchInput = useRef();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setFilteredResults(results);
+  }, [results]);
 
   useEffect(() => {
     async function search(query) {
@@ -96,23 +104,94 @@ function Search() {
         </div>
       </NavBar>
 
-      <div style={{ marginTop: "5rem", paddingInline: "1.25rem" }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "1.25rem",
+          marginTop: "5rem",
+          paddingInline: "1.25rem",
+        }}
+      >
         <div
           style={{
-            backgroundColor: "#00ffff31",
+            backgroundColor: on === "all" ? "#00ffff56" : "#ffffff2a",
             padding: "0.5rem 1rem",
             borderRadius: "1.25rem",
             fontSize: "0.875rem",
             fontWeight: 500,
             width: "fit-content",
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            setFilteredResults(results);
+            setOn("all");
           }}
         >
           {results.length === 0
             ? "Find your favorite movies, and TV show"
-            : `${
+            : `All Results (${
                 results.filter((result) => result.popularity > 1).length
-              } Results Found`}
+              })`}
         </div>
+
+        {results.length !== 0 && (
+          <div
+            style={{
+              backgroundColor: on === "movie" ? "#00ffff56" : "#ffffff2a",
+              padding: "0.5rem 1rem",
+              borderRadius: "1.25rem",
+              fontSize: "0.875rem",
+              fontWeight: 500,
+              width: "fit-content",
+              cursor: "pointer",
+            }}
+          >
+            <div
+              style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}
+              onClick={() => {
+                setFilteredResults(results.filter((result) => result.title));
+                setOn("movie");
+              }}
+            >
+              <Movie />
+              {`Movies (${
+                results.filter(
+                  (result) => result.popularity > 1 && result.title
+                ).length
+              })`}
+            </div>
+          </div>
+        )}
+
+        {results.length !== 0 && (
+          <div
+            style={{
+              backgroundColor: on === "tv" ? "#00ffff56" : "#ffffff2a",
+              padding: "0.5rem 1rem",
+              borderRadius: "1.25rem",
+              fontSize: "0.875rem",
+              fontWeight: 500,
+              width: "fit-content",
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              setFilteredResults(results.filter((result) => !result.title));
+              setOn("tv");
+            }}
+          >
+            <div
+              style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}
+            >
+              <Tv />
+              {`Tv Series (${
+                results.filter(
+                  (result) => result.popularity > 1 && !result.title
+                ).length
+              })`}
+            </div>
+          </div>
+        )}
       </div>
 
       <div
@@ -124,7 +203,7 @@ function Search() {
           padding: "1.5rem 1.25rem",
         }}
       >
-        {results.map((result) => {
+        {filteredResults.map((result) => {
           if (result.popularity > 1) return <Card movie={result} />;
         })}
       </div>
