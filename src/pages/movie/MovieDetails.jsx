@@ -14,10 +14,11 @@ import LoadingAnimation from "../../assets/LoadingAnimation";
 
 import { fetchTvGenres } from "../../utils/fetchTvGenres";
 import { fetchMovieGenres } from "../../utils/fetchMovieGenres";
-
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Back from "../../assets/Back";
 
 function MovieDetails() {
+  const navigate = useNavigate();
   const [tvGenres, setTvGenres] = useState([]);
   const [movieGenres, setMovieGenres] = useState([]);
 
@@ -52,11 +53,14 @@ function MovieDetails() {
   return (
     <main>
       <NavBar style={{ justifyContent: "none", gap: "0.625rem" }}>
-        <Link to="/dashboard" style={{ color: "inherit" }}>
-          <SecondaryButton type="circle">
-            <BackIcon style={{ opacity: 0.8 }} />
-          </SecondaryButton>
-        </Link>
+        <SecondaryButton
+          type="circle"
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
+          <Back style={{ opacity: 0.8 }} />
+        </SecondaryButton>
       </NavBar>
 
       <div className={styles.backgroundImage}>

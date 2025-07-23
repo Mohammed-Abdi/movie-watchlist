@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Back from "../../assets/Back";
 import NavBar from "../../components/navBar";
 import SecondaryButton from "../../components/secondary-button/SecondaryButton";
@@ -7,6 +7,7 @@ import Logo from "../../components/Logo";
 import NoData from "../../assets/NoData";
 
 function Watchlist() {
+  const navigate = useNavigate();
   return (
     <main className={styles.Watchlist}>
       <NavBar
@@ -15,11 +16,14 @@ function Watchlist() {
           gap: "0.625rem",
         }}
       >
-        <Link to="/dashboard" style={{ color: "inherit" }}>
-          <SecondaryButton type="circle">
-            <Back style={{ opacity: 0.8 }} />
-          </SecondaryButton>
-        </Link>
+        <SecondaryButton
+          type="circle"
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
+          <Back style={{ opacity: 0.8 }} />
+        </SecondaryButton>
         <Logo text="Your WatchList" />
       </NavBar>
       <div className={styles.body}>
