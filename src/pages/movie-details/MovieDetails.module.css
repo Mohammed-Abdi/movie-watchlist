@@ -62,6 +62,10 @@
   width: fit-content;
 }
 
+.title {
+  max-width: 40rem;
+}
+
 .yearBadge {
   display: flex;
   align-items: center;
@@ -89,6 +93,7 @@
 .genres {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.625rem;
 }
 

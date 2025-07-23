@@ -34,6 +34,10 @@ function MovieDetails() {
   const { movie } = useContext(MovieContext);
   const genres = [...tvGenres, ...movieGenres];
 
+  const isTvSeries = movie.title ? false : true;
+
+  console.log(movie);
+
   useEffect(() => {
     document.title = movie?.title || movie?.original_name;
     return () => {
@@ -93,13 +97,13 @@ function MovieDetails() {
         </div>
 
         <div className={styles.details}>
-          <h1 style={{ maxWidth: "40rem" }}>
+          <h1 className={styles.title}>
             {movie?.title || movie.original_name}
           </h1>
 
           <div className={styles.quickInfo}>
             <div className={styles.movieBadge}>
-              {movie.isTvShow ? "TV Show" : "Movie"}
+              {isTvSeries ? "TV Series" : "Movie"}
             </div>
 
             <div className={styles.yearBadge}>
