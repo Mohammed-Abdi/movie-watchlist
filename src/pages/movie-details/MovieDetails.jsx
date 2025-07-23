@@ -89,12 +89,12 @@ function MovieDetails() {
           <ActionButton
             style={{
               background: user.watchList.some(
-                (movieInWatchList) => movieInWatchList.id === movie.id
+                (movieInWatchList) => movieInWatchList.movie.id === movie.id
               )
                 ? "transparent"
                 : "",
               color: user.watchList.some(
-                (movieInWatchList) => movieInWatchList.id === movie.id
+                (movieInWatchList) => movieInWatchList.movie.id === movie.id
               )
                 ? "#fff"
                 : "",
@@ -106,7 +106,7 @@ function MovieDetails() {
             onClick={() => {
               if (
                 user.watchList.some(
-                  (movieInWatchList) => movieInWatchList.id === movie.id
+                  (movieInWatchList) => movieInWatchList.movie.id === movie.id
                 )
               )
                 return;
@@ -117,14 +117,14 @@ function MovieDetails() {
                   movie,
                   notification: `You added$${
                     movie?.title ? movie?.title : movie.original_name
-                  }$ ${movie?.title ? "movie" : "Tv series"} to your watchlist`,
+                  }$ ${movie?.title ? "movie" : "tv series"} to your watchlist`,
                   timestamp: new Date().toISOString(),
                 },
               });
             }}
             icon={
               user.watchList.some(
-                (movieInWatchList) => movieInWatchList.id === movie.id
+                (movieInWatchList) => movieInWatchList.movie.id === movie.id
               ) ? (
                 <AddedBookmark />
               ) : (
@@ -133,7 +133,7 @@ function MovieDetails() {
             }
           >
             {user.watchList.some(
-              (movieInWatchList) => movieInWatchList.id === movie.id
+              (movieInWatchList) => movieInWatchList.movie.id === movie.id
             )
               ? "Saved to Watchlist"
               : "Add to Watchlist"}

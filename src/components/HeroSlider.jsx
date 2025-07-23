@@ -118,17 +118,17 @@ function HeroSlider({ movies }) {
             <ActionButton
               style={{
                 background: user.watchList.some(
-                  (movieInWatchList) => movieInWatchList.id === movie.id
+                  (movieInWatchList) => movieInWatchList.movie.id === movie.id
                 )
                   ? "transparent"
                   : "",
                 color: user.watchList.some(
-                  (movieInWatchList) => movieInWatchList.id === movie.id
+                  (movieInWatchList) => movieInWatchList.movie.id === movie.id
                 )
                   ? "#fff"
                   : "",
                 padding: user.watchList.some(
-                  (movieInWatchList) => movieInWatchList.id === movie.id
+                  (movieInWatchList) => movieInWatchList.movie.id === movie.id
                 )
                   ? "0.75rem 0"
                   : "0.75rem 3rem",
@@ -139,7 +139,7 @@ function HeroSlider({ movies }) {
               onClick={() => {
                 if (
                   user.watchList.some(
-                    (movieInWatchList) => movieInWatchList.id === movie.id
+                    (movieInWatchList) => movieInWatchList.movie.id === movie.id
                   )
                 )
                   return;
@@ -159,7 +159,7 @@ function HeroSlider({ movies }) {
               }}
               icon={
                 user.watchList.some(
-                  (movieInWatchList) => movieInWatchList.id === movie.id
+                  (movieInWatchList) => movieInWatchList.movie.id === movie.id
                 ) ? (
                   <AddedBookmark />
                 ) : (
@@ -168,7 +168,7 @@ function HeroSlider({ movies }) {
               }
             >
               {user.watchList.some(
-                (movieInWatchList) => movieInWatchList.id === movie.id
+                (movieInWatchList) => movieInWatchList.movie.id === movie.id
               )
                 ? "Saved to Watchlist"
                 : "Add to Watchlist"}
