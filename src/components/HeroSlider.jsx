@@ -136,7 +136,13 @@ function HeroSlider({ movies }) {
                 maxWidth: "fit-content",
                 borderRadius: "0.5rem",
               }}
-              onClick={() =>
+              onClick={() => {
+                if (
+                  user.watchList.some(
+                    (movieInWatchList) => movieInWatchList.id === movie.id
+                  )
+                )
+                  return;
                 userDispatch({
                   type: "ADD_MOVIE_TO_WATCHLIST",
                   payload: {
@@ -149,8 +155,8 @@ function HeroSlider({ movies }) {
                     } to your watchlist`,
                     timestamp: new Date().toISOString(),
                   },
-                })
-              }
+                });
+              }}
               icon={
                 user.watchList.some(
                   (movieInWatchList) => movieInWatchList.id === movie.id
