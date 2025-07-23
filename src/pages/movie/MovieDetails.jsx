@@ -5,7 +5,6 @@ import { MovieContext } from "../../context/MovieContext";
 
 import CalendarIcon from "../../assets/Calendar";
 import StarIcon from "../../assets/Star";
-import BackIcon from "../../assets/Back";
 
 import ActionButton from "../../components/ActionButton";
 import NavBar from "../../components/NavBar";

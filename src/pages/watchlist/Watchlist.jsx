@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Back from "../../assets/Back";
 import NavBar from "../../components/navBar";
 import SecondaryButton from "../../components/secondary-button/SecondaryButton";
