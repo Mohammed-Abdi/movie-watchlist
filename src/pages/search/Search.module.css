@@ -34,11 +34,56 @@
   right: 1.25rem;
 }
 
+.searchNavContainer {
+  justify-content: none;
+  gap: 0.625rem;
+}
+
+.searchWrapper {
+  position: relative;
+  width: min(37.5rem, 100%);
+  margin-inline: auto;
+}
+
+.searchFilterRow {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 5rem;
+  padding-inline: 1.25rem;
+}
+
+.searchFilter {
+  background-color: #ffffff2a;
+  padding: 0.5rem 1rem;
+  border-radius: 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  width: fit-content;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.searchFilter--active {
+  background-color: #00ffff56;
+}
+
+.searchCardWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  padding: 1.5rem 1.25rem;
+}
+
 @media (max-width: 48rem) {
   .searchInput {
     background: none;
     padding-inline: 2rem;
   }
+
   .searchIcon {
     left: 0;
   }

@@ -61,28 +61,12 @@ function Search() {
 
   return (
     <main className={styles.Search}>
-      <NavBar
-        style={{
-          justifyContent: "none",
-          gap: "0.625rem",
-        }}
-      >
-        <SecondaryButton
-          type="circle"
-          onClick={() => {
-            navigate(-1);
-          }}
-        >
+      <NavBar className={styles.searchNavContainer}>
+        <SecondaryButton type="circle" onClick={() => navigate(-1)}>
           <Back style={{ opacity: 0.8 }} />
         </SecondaryButton>
 
-        <div
-          style={{
-            position: "relative",
-            width: "min(37.5rem, 100%)",
-            marginInline: "auto",
-          }}
-        >
+        <div className={styles.searchWrapper}>
           <div className={styles.searchIcon}>
             <SearchIcon
               style={{ width: "18px", height: "18px", opacity: 0.7 }}
@@ -96,7 +80,6 @@ function Search() {
             placeholder="Search..."
             className={styles.searchInput}
           />
-
           <div className={styles.keyIcon}>
             <MacCommand />
             <span>+ K</span>
@@ -104,25 +87,11 @@ function Search() {
         </div>
       </NavBar>
 
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "1.25rem",
-          marginTop: "5rem",
-          paddingInline: "1.25rem",
-        }}
-      >
+      <div className={styles.searchFilterRow}>
         <div
-          style={{
-            backgroundColor: on === "all" ? "#00ffff56" : "#ffffff2a",
-            padding: "0.5rem 1rem",
-            borderRadius: "1.25rem",
-            fontSize: "0.875rem",
-            fontWeight: 500,
-            width: "fit-content",
-            cursor: "pointer",
-          }}
+          className={`${styles.searchFilter} ${
+            on === "all" ? styles["searchFilter--active"] : ""
+          }`}
           onClick={() => {
             setFilteredResults(results);
             setOn("all");
@@ -137,75 +106,46 @@ function Search() {
 
         {results.length !== 0 && (
           <div
-            style={{
-              backgroundColor: on === "movie" ? "#00ffff56" : "#ffffff2a",
-              padding: "0.5rem 1rem",
-              borderRadius: "1.25rem",
-              fontSize: "0.875rem",
-              fontWeight: 500,
-              width: "fit-content",
-              cursor: "pointer",
+            className={`${styles.searchFilter} ${
+              on === "movie" ? styles["searchFilter--active"] : ""
+            }`}
+            onClick={() => {
+              setFilteredResults(results.filter((result) => result.title));
+              setOn("movie");
             }}
           >
-            <div
-              style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}
-              onClick={() => {
-                setFilteredResults(results.filter((result) => result.title));
-                setOn("movie");
-              }}
-            >
-              <Movie />
-              {`Movies (${
-                results.filter(
-                  (result) => result.popularity > 1 && result.title
-                ).length
-              })`}
-            </div>
+            <Movie />
+            {`Movies (${
+              results.filter((result) => result.popularity > 1 && result.title)
+                .length
+            })`}
           </div>
         )}
 
         {results.length !== 0 && (
           <div
-            style={{
-              backgroundColor: on === "tv" ? "#00ffff56" : "#ffffff2a",
-              padding: "0.5rem 1rem",
-              borderRadius: "1.25rem",
-              fontSize: "0.875rem",
-              fontWeight: 500,
-              width: "fit-content",
-              cursor: "pointer",
-            }}
+            className={`${styles.searchFilter} ${
+              on === "tv" ? styles["searchFilter--active"] : ""
+            }`}
             onClick={() => {
               setFilteredResults(results.filter((result) => !result.title));
               setOn("tv");
             }}
           >
-            <div
-              style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}
-            >
-              <Tv />
-              {`Tv Series (${
-                results.filter(
-                  (result) => result.popularity > 1 && !result.title
-                ).length
-              })`}
-            </div>
+            <Tv />
+            {`Tv Series (${
+              results.filter((result) => result.popularity > 1 && !result.title)
+                .length
+            })`}
           </div>
         )}
       </div>
 
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "1.25rem",
-          flexWrap: "wrap",
-          padding: "1.5rem 1.25rem",
-        }}
-      >
-        {filteredResults.map((result) => {
-          if (result.popularity > 1) return <Card movie={result} />;
-        })}
+      <div className={styles.searchCardWrapper}>
+        {filteredResults.map(
+          (result) =>
+            result.popularity > 1 && <Card key={result.id} movie={result} />
+        )}
       </div>
     </main>
   );
