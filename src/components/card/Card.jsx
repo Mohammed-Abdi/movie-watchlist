@@ -11,7 +11,7 @@ function Card({ movie, isTvShow }) {
 
   return (
     <Link
-      to={`/dashboard/movie/${movie.id}`}
+      to={`/movies-explore/movie/${movie.id}`}
       className={styles.cardWrapper}
       style={{ color: "inherit" }}
       onClick={() =>
