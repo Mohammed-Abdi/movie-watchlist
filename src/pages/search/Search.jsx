@@ -10,6 +10,7 @@ import Card from "../../components/card/Card";
 import MacCommand from "../../assets/icons/MacCommand";
 import Tv from "../../assets/icons/Tv";
 import Movie from "../../assets/icons/Movie";
+import NoData from "../../components/NoData";
 
 function Search() {
   const [query, setQuery] = useState("");
@@ -97,7 +98,7 @@ function Search() {
             setOn("all");
           }}
         >
-          {results.length === 0
+          {results.length === 0 && !query
             ? "Find your favorite movies, and TV show"
             : `All Results (${
                 results.filter((result) => result.popularity > 1).length
@@ -140,6 +141,10 @@ function Search() {
           </div>
         )}
       </div>
+
+      {results.length === 0 && query && (
+        <NoData text={`No results found for "${query}"`} />
+      )}
 
       <div className={styles.searchCardWrapper}>
         {filteredResults.map(
