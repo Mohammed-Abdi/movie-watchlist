@@ -46,25 +46,31 @@ function Watchlist() {
               These are the titles you’re keeping an eye on — ready when you
               are.
             </p>
-            {user.watchList.map((movie) => (
+            {user.watchList.map((list) => (
               <div className={styles.wrapper}>
                 <img
                   className={styles.poster}
-                  src={`https://image.tmdb.org/t/p/w92${movie?.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/w92${list.movie?.poster_path}`}
                   alt={`${
-                    movie?.title ? movie?.title : movie.original_name
+                    list.movie?.title
+                      ? list.movie?.title
+                      : list.movie.original_name
                   } poster`}
                   width={50}
                 />
                 <div className={styles.details}>
-                  <p>{movie?.title ? movie?.title : movie.original_name}</p>
+                  <p>
+                    {list.movie?.title
+                      ? list.movie?.title
+                      : list.movie.original_name}
+                  </p>
                   <p style={{ opacity: 0.7, fontSize: "0.875rem" }}>
-                    {movie?.release_date
-                      ? movie?.release_date?.split("-").at(0)
-                      : movie?.first_air_date?.split("-").at(0)}
+                    {list.movie?.release_date
+                      ? list.movie?.release_date?.split("-").at(0)
+                      : list.movie?.first_air_date?.split("-").at(0)}
                   </p>
                   <p style={{ opacity: 0.5, fontSize: "0.75rem" }}>
-                    Added on {formatDateTime(movie.timestamp)}
+                    Added on {formatDateTime(list.movie.timestamp)}
                   </p>
                 </div>
               </div>
