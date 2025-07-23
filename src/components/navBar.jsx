@@ -4,6 +4,7 @@ const navBarStyle = {
   justifyContent: "space-between",
   padding: "0.875rem 1.25rem",
   position: "fixed",
+  top: 0,
   zIndex: 2,
   width: "100%",
   background: `linear-gradient(
