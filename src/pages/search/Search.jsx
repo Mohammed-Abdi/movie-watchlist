@@ -97,7 +97,7 @@ function Search() {
         }}
       >
         {results.map((result) => {
-          return <Card movie={result} />;
+          if (result.popularity > 1) return <Card movie={result} />;
         })}
       </div>
     </main>
