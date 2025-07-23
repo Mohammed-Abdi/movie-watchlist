@@ -100,8 +100,8 @@ function MovieDetails() {
             <div className={styles.yearBadge}>
               <CalendarIcon />
               {movie?.release_date
-                ? movie.release_date.split("-")[0]
-                : movie.first_air_date.split("-")[0]}
+                ? movie?.release_date?.split("-")[0]
+                : movie?.first_air_date?.split("-")[0]}
             </div>
 
             <div className={styles.rating}>
@@ -112,7 +112,7 @@ function MovieDetails() {
             <p className={styles.ageRating}>{movie?.adult ? "18+" : "PG-13"}</p>
           </div>
 
-          <p className={styles.overview}>{movie.overview}</p>
+          <p className={styles.overview}>{movie?.overview}</p>
 
           <div className={styles.genres}>
             Genre:
