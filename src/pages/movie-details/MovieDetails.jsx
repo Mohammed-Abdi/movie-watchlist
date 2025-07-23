@@ -41,6 +41,10 @@ function MovieDetails() {
   const isTvSeries = movie.title ? false : true;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     document.title = movie?.title || movie?.original_name;
     return () => {
       document.title = "Movie Watchlist";

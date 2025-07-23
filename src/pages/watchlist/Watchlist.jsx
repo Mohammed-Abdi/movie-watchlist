@@ -5,7 +5,7 @@ import SecondaryButton from "../../components/secondary-button/SecondaryButton";
 import styles from "./Watchlist.module.css";
 import Logo from "../../components/Logo";
 import NoData from "../../components/NoData";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../../context/UserContext";
 import { formatDateTime } from "../../services/formatDateTime";
 import Star from "../../assets/icons/Star";
@@ -17,6 +17,11 @@ function Watchlist() {
   const isWatchlistEmpty = user.watchList.length === 0 ? true : false;
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main className={styles.Watchlist}>
       <NavBar

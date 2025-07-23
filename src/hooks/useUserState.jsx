@@ -12,16 +12,16 @@ function reducer(state, action) {
       return {
         ...state,
         watchList: [
-          ...state.watchList,
           { movie: action.payload.movie, timestamp: action.payload.timestamp },
+          ...state.watchList,
         ],
         notifications: [
-          ...state.notifications,
           {
             type: action.payload.type,
             message: action.payload.notification,
             timestamp: action.payload.timestamp,
           },
+          ...state.notifications,
         ],
         newNotificationCount: state.newNotificationCount + 1,
       };
@@ -32,13 +32,14 @@ function reducer(state, action) {
           (list) => list.movie.id !== action.payload.id
         ),
         notifications: [
-          ...state.notifications,
           {
             type: action.payload.type,
             message: action.payload.notification,
             timestamp: action.payload.timestamp,
           },
+          ...state.notifications,
         ],
+        newNotificationCount: state.newNotificationCount + 1,
       };
     case "CLEAR_NOTIFICATIONS":
       return { ...state, newNotificationCount: 0 };

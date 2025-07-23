@@ -62,6 +62,10 @@ function MoviesExplore() {
     loadAllMediaData();
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main className={styles.MoviesExplore}>
       <NavBar>
