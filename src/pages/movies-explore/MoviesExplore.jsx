@@ -13,6 +13,7 @@ import PopularMovies from "../../components/PopularMovies";
 import { fetchTopRatedTvShows } from "../../utils/fetchTopRatedTvShows";
 import TopRatedTvShows from "../../components/TopRatedTvShows";
 import Footer from "../../components/Footer";
+import { useNavigate } from "react-router-dom";
 
 function MoviesExplore() {
   const [mediaData, setMediaData] = useState({
@@ -21,6 +22,21 @@ function MoviesExplore() {
     popularMovies: [],
     topRatedTvShows: [],
   });
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    function handleShortcut(e) {
+      e.preventDefault();
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+        navigate("search");
+      }
+    }
+
+    document.addEventListener("keydown", handleShortcut);
+
+    return () => document.removeEventListener("keydown", handleShortcut);
+  }, [navigate]);
 
   useEffect(() => {
     async function loadAllMediaData() {
