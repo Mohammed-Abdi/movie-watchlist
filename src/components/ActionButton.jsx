@@ -7,7 +7,9 @@ const buttonStyle = {
   width: "fit-content",
 };
 
-function ActionButton({ type, children, onClick, style }) {
+const wrapperStyle = { display: "flex", alignItems: "center", gap: "0.25rem" };
+
+function ActionButton({ type, children, onClick, style, icon }) {
   return (
     <button
       className="button"
@@ -15,7 +17,9 @@ function ActionButton({ type, children, onClick, style }) {
       onClick={onClick}
       style={{ ...buttonStyle, ...style }}
     >
-      <span style={{ whiteSpace: "nowrap" }}>{children}</span>
+      <div style={wrapperStyle}>
+        {icon} <span style={{ whiteSpace: "nowrap" }}>{children}</span>
+      </div>
     </button>
   );
 }

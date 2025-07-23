@@ -6,6 +6,7 @@ import ActionButton from "./ActionButton";
 import Star from "../assets/icons/Star";
 import LoadingAnimation from "../assets/animation/LoadingAnimation";
 import { UserContext } from "../context/UserContext";
+import AddBookmark from "../assets/icons/AddBookmark";
 
 function HeroSlider({ movies }) {
   const { userDispatch } = useContext(UserContext);
@@ -133,6 +134,7 @@ function HeroSlider({ movies }) {
                   },
                 })
               }
+              icon={<AddBookmark />}
             >
               Add to Watchlist
             </ActionButton>
