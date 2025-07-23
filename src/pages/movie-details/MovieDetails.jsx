@@ -15,11 +15,15 @@ import { fetchTvGenres } from "../../utils/fetchTvGenres";
 import { fetchMovieGenres } from "../../utils/fetchMovieGenres";
 import { useNavigate } from "react-router-dom";
 import Back from "../../assets/icons/Back";
+import { UserContext } from "../../context/UserContext";
+import AddedBookmark from "../../assets/icons/AddedBookmark";
+import AddBookmark from "../../assets/icons/AddBookmark";
 
 function MovieDetails() {
   const navigate = useNavigate();
   const [tvGenres, setTvGenres] = useState([]);
   const [movieGenres, setMovieGenres] = useState([]);
+  const { user, userDispatch } = useContext(UserContext);
 
   useEffect(() => {
     async function loadGenres() {
@@ -84,13 +88,49 @@ function MovieDetails() {
           />
           <ActionButton
             style={{
+              background: user.watchList.some(
+                (movieInWatchList) => movieInWatchList.id === movie.id
+              )
+                ? "transparent"
+                : "",
+              color: user.watchList.some(
+                (movieInWatchList) => movieInWatchList.id === movie.id
+              )
+                ? "#fff"
+                : "",
               padding: "0.75rem 3rem",
               fontSize: "1rem",
               maxWidth: "fit-content",
               borderRadius: "0.5rem",
             }}
+            onClick={() =>
+              userDispatch({
+                type: "ADD_MOVIE_TO_WATCHLIST",
+                payload: {
+                  type: "add",
+                  movie,
+                  notification: `You added$${
+                    movie?.title ? movie?.title : movie.original_name
+                  }$ ${movie?.title ? "movie" : "Tv series"} to your watchlist`,
+                  timestamp: new Date().toISOString(),
+                },
+              })
+            }
+            icon={
+              user.watchList.some(
+                (movieInWatchList) => movieInWatchList.id === movie.id
+              ) ? (
+                <AddedBookmark />
+              ) : (
+                <AddBookmark />
+              )
+            }
           >
-            Add to Watchlist
+            {user.watchList.some(
+              (movieInWatchList) => movieInWatchList.id === movie.id
+            )
+              ? "Saved to Watchlist"
+              : "Add to Watchlist"}
           </ActionButton>
         </div>
 

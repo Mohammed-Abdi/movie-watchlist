@@ -7,9 +7,10 @@ import Star from "../assets/icons/Star";
 import LoadingAnimation from "../assets/animation/LoadingAnimation";
 import { UserContext } from "../context/UserContext";
 import AddBookmark from "../assets/icons/AddBookmark";
+import AddedBookmark from "../assets/icons/AddedBookmark";
 
 function HeroSlider({ movies }) {
-  const { userDispatch } = useContext(UserContext);
+  const { user, userDispatch } = useContext(UserContext);
   const sliderRef = useRef();
 
   const settings = {
@@ -116,7 +117,21 @@ function HeroSlider({ movies }) {
             </div>
             <ActionButton
               style={{
-                padding: "0.75rem 3rem",
+                background: user.watchList.some(
+                  (movieInWatchList) => movieInWatchList.id === movie.id
+                )
+                  ? "transparent"
+                  : "",
+                color: user.watchList.some(
+                  (movieInWatchList) => movieInWatchList.id === movie.id
+                )
+                  ? "#fff"
+                  : "",
+                padding: user.watchList.some(
+                  (movieInWatchList) => movieInWatchList.id === movie.id
+                )
+                  ? "0.75rem 0"
+                  : "0.75rem 3rem",
                 fontSize: "1rem",
                 maxWidth: "fit-content",
                 borderRadius: "0.5rem",
@@ -127,16 +142,30 @@ function HeroSlider({ movies }) {
                   payload: {
                     type: "add",
                     movie,
-                    notification: `You added the ${
+                    notification: `You added$${
                       movie?.title ? movie?.title : movie.original_name
+                    }$ ${
+                      movie?.title ? "movie" : "tv series"
                     } to your watchlist`,
                     timestamp: new Date().toISOString(),
                   },
                 })
               }
-              icon={<AddBookmark />}
+              icon={
+                user.watchList.some(
+                  (movieInWatchList) => movieInWatchList.id === movie.id
+                ) ? (
+                  <AddedBookmark />
+                ) : (
+                  <AddBookmark />
+                )
+              }
             >
-              Add to Watchlist
+              {user.watchList.some(
+                (movieInWatchList) => movieInWatchList.id === movie.id
+              )
+                ? "Saved to Watchlist"
+                : "Add to Watchlist"}
             </ActionButton>
           </div>
         </div>
