@@ -43,16 +43,6 @@ function Watchlist() {
       <div className={styles.body}>
         {!isWatchlistEmpty && (
           <div className={styles.mainWrapper}>
-            <p
-              style={{
-                opacity: 0.7,
-                fontSize: "0.875rem",
-                marginBottom: "1.25rem",
-              }}
-            >
-              These are the titles you’re keeping an eye on — ready when you
-              are.
-            </p>
             {user.watchList.map((list) => (
               <div key={list.movie.id} className={styles.wrapper}>
                 <img
