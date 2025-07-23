@@ -28,7 +28,7 @@ function reducer(state, action) {
       return {
         ...state,
         watchList: state.watchList.filter(
-          (movie) => movie.id === action.payload.id
+          (list) => list.movie.id !== action.payload.id
         ),
         notifications: [...state.notifications, action.payload.notification],
       };

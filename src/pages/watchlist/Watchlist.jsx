@@ -9,9 +9,10 @@ import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { formatDateTime } from "../../services/formatDateTime";
 import Star from "../../assets/icons/Star";
+import Trash from "../../assets/icons/Trash";
 
 function Watchlist() {
-  const { user } = useContext(UserContext);
+  const { user, userDispatch } = useContext(UserContext);
 
   const isWatchlistEmpty = user.watchList.length === 0 ? true : false;
 
@@ -57,7 +58,7 @@ function Watchlist() {
                       ? list.movie?.title
                       : list.movie.original_name
                   } poster`}
-                  width={50}
+                  width={55}
                 />
                 <div className={styles.details}>
                   <p>
@@ -92,6 +93,26 @@ function Watchlist() {
                   <p style={{ opacity: 0.5, fontSize: "0.75rem" }}>
                     Added on {formatDateTime(list.timestamp)}
                   </p>
+                </div>
+                <div
+                  className={styles.deleteIcon}
+                  onClick={() =>
+                    userDispatch({
+                      type: "REMOVE_MOVIE_FROM_WATCHLIST",
+                      payload: {
+                        id: list.movie.id,
+                        notification: `You removed$${
+                          list.movie?.title
+                            ? list.movie?.title
+                            : list.movie.original_name
+                        }$ ${
+                          list.movie?.title ? "movie" : "tv series"
+                        } from your watchlist`,
+                      },
+                    })
+                  }
+                >
+                  <Trash style={{ color: "#ff0000d5" }} />
                 </div>
               </div>
             ))}

@@ -23,9 +23,10 @@
   align-items: center;
   gap: 0.625rem;
   width: 100%;
-  padding: 0.625rem;
+  padding: 0.875rem;
   border-radius: 0.625rem;
   background-color: #ffffff25;
+  position: relative;
 }
 
 .poster {
@@ -36,6 +37,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  max-width: 65%;
 }
 
 .info {
@@ -54,4 +56,25 @@
 
 .year {
   font-size: 0.75rem;
+}
+
+.deleteIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1.25rem;
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+@media (min-width: 48rem) {
+  .deleteIcon:hover {
+    background-color: #ffffff28;
+  }
 }
