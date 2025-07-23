@@ -3,8 +3,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ActionButton from "./ActionButton";
-import Star from "../assets/Star";
-import LoadingAnimation from "../assets/LoadingAnimation";
+import Star from "../assets/icons/Star";
+import LoadingAnimation from "../assets/animation/LoadingAnimation";
 
 function HeroSlider({ movies }) {
   const sliderRef = useRef();

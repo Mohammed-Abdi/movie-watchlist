@@ -1,5 +1,5 @@
 import Lottie from "lottie-react";
-import SleepyCat from "../assets/json/SleepyCat.json";
+import SleepyCat from "../assets/animation/SleepyCat.json";
 
 function NoData({ text, style }) {
   return (

@@ -3,18 +3,18 @@ import styles from "./MovieDetails.module.css";
 
 import { MovieContext } from "../../context/MovieContext";
 
-import CalendarIcon from "../../assets/Calendar";
-import StarIcon from "../../assets/Star";
+import CalendarIcon from "../../assets/icons/Calendar";
+import StarIcon from "../../assets/icons/Star";
 
 import ActionButton from "../../components/ActionButton";
 import NavBar from "../../components/NavBar";
 import SecondaryButton from "../../components/secondary-button/SecondaryButton";
-import LoadingAnimation from "../../assets/LoadingAnimation";
+import LoadingAnimation from "../../assets/animation/LoadingAnimation";
 
 import { fetchTvGenres } from "../../utils/fetchTvGenres";
 import { fetchMovieGenres } from "../../utils/fetchMovieGenres";
 import { useNavigate } from "react-router-dom";
-import Back from "../../assets/Back";
+import Back from "../../assets/icons/Back";
 
 function MovieDetails() {
   const navigate = useNavigate();

@@ -1,4 +1,4 @@
-import LoadingAnimation from "../assets/LoadingAnimation";
+import LoadingAnimation from "../assets/animation/LoadingAnimation";
 import Card from "./card/Card";
 
 function PopularMovies({ movies }) {

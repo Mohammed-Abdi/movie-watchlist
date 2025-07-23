@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import NavBar from "../../components/navBar";
 import styles from "./Notifications.module.css";
 import SecondaryButton from "../../components/secondary-button/SecondaryButton";
-import Back from "../../assets/Back";
+import Back from "../../assets/icons/Back";
 import Logo from "../../components/Logo";
-import NoData from "../../assets/NoData";
+import NavBar from "../../components/NavBar";
+import NoData from "../../components/NoData";
 
 function Notifications() {
   const navigate = useNavigate();

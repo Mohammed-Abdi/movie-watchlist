@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import Back from "../../assets/Back";
-import NavBar from "../../components/navBar";
+import Back from "../../assets/icons/Back";
+import NavBar from "../../components/NavBar";
 import SecondaryButton from "../../components/secondary-button/SecondaryButton";
 import styles from "./Watchlist.module.css";
 import Logo from "../../components/Logo";
-import NoData from "../../assets/NoData";
+import NoData from "../../components/NoData";
 
 function Watchlist() {
   const navigate = useNavigate();

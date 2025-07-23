@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import Bell from "../assets/Bell";
-import Bookmark from "../assets/Bookmark";
-import Search from "../assets/Search";
+import Bell from "../assets/icons/Bell";
+import Bookmark from "../assets/icons/Bookmark";
+import Search from "../assets/icons/Search";
 import SecondaryButton from "./secondary-button/SecondaryButton";
 
 const utilitiesStyle = {

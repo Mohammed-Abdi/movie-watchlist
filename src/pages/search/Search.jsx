@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./Search.module.css";
-import Back from "../../assets/Back";
+import Back from "../../assets/icons/Back";
 import NavBar from "../../components/NavBar";
-import SearchIcon from "../../assets/Search";
+import SearchIcon from "../../assets/icons/Search";
 import SecondaryButton from "../../components/secondary-button/SecondaryButton";
 import { useEffect, useRef, useState } from "react";
 import { fetchMoviesBySearch } from "../../utils/fetchMoviesBySearch";
 import Card from "../../components/card/Card";
-import MacCommand from "../../assets/MacCommand";
+import MacCommand from "../../assets/icons/MacCommand";
 
 function Search() {
   const [query, setQuery] = useState("");

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Star from "../../assets/Star";
+import Star from "../../assets/icons/Star";
 import styles from "./Card.module.css";
 import { useContext } from "react";
 import { MovieContext } from "../../context/MovieContext";
