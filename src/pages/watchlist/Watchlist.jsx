@@ -70,7 +70,7 @@ function Watchlist() {
                       : list.movie?.first_air_date?.split("-").at(0)}
                   </p>
                   <p style={{ opacity: 0.5, fontSize: "0.75rem" }}>
-                    Added on {formatDateTime(list.movie.timestamp)}
+                    Added on {formatDateTime(list.timestamp)}
                   </p>
                 </div>
               </div>
