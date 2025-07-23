@@ -39,8 +39,6 @@ function Search() {
     if (!query) setResults([]);
   }, [query]);
 
-  console.log(results);
-
   useEffect(() => {
     searchInput.current.focus();
   }, []);
