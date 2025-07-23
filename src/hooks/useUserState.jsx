@@ -15,6 +15,7 @@ function reducer(state, action) {
         notifications: [
           ...state.notifications,
           {
+            type: action.payload.type,
             message: action.payload.notification,
             timestamp: action.payload.timestamp,
           },

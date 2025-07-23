@@ -124,6 +124,7 @@ function HeroSlider({ movies }) {
                 userDispatch({
                   type: "ADD_MOVIE_TO_WATCHLIST",
                   payload: {
+                    type: "add",
                     movie,
                     notification: `You added the ${
                       movie?.title ? movie?.title : movie.original_name
