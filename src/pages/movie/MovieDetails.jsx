@@ -90,7 +90,9 @@ function MovieDetails() {
         </div>
 
         <div className={styles.details}>
-          <h1>{movie?.title || movie.original_name}</h1>
+          <h1 style={{ maxWidth: "40rem" }}>
+            {movie?.title || movie.original_name}
+          </h1>
 
           <div className={styles.quickInfo}>
             <div className={styles.movieBadge}>
