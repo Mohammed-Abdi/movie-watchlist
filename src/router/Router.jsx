@@ -7,7 +7,7 @@ import NotFound from "../pages/notFound";
 import { useContext } from "react";
 import { MovieContext } from "../context/MovieContext";
 import MovieDetails from "../pages/movie-details/MovieDetails";
-import MoviesExplore from "../pages/dashboard/MoviesExplore";
+import MoviesExplore from "../pages/movies-explore/MoviesExplore";
 
 function Router() {
   const { movie } = useContext(MovieContext);
