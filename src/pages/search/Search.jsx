@@ -148,7 +148,10 @@ function Search() {
       </div>
 
       {results.length === 0 && search && (
-        <NoData text={`No results found for "${search}"`} />
+        <NoData
+          style={{ marginTop: "15vh" }}
+          text={`No results found for "${search}"`}
+        />
       )}
 
       <div className={styles.searchCardWrapper}>
