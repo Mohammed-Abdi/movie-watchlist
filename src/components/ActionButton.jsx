@@ -12,6 +12,7 @@ const wrapperStyle = { display: "flex", alignItems: "center", gap: "0.25rem" };
 function ActionButton({ type, children, onClick, style, icon }) {
   return (
     <button
+      name="action-button"
       className="button"
       type={type || "button"}
       onClick={onClick}

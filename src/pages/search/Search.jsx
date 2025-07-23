@@ -73,6 +73,7 @@ function Search() {
             />
           </div>
           <input
+            id="searchInput"
             ref={searchInput}
             spellCheck={false}
             value={search}
