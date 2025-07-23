@@ -36,8 +36,6 @@ function MovieDetails() {
 
   const isTvSeries = movie.title ? false : true;
 
-  console.log(movie);
-
   useEffect(() => {
     document.title = movie?.title || movie?.original_name;
     return () => {
