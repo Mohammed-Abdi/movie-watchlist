@@ -11,7 +11,10 @@ function reducer(state, action) {
     case "ADD_MOVIE_TO_WATCHLIST":
       return {
         ...state,
-        watchList: [...state.watchList, action.payload.movie],
+        watchList: [
+          ...state.watchList,
+          { movie: action.payload.movie, timestamp: action.payload.timestamp },
+        ],
         notifications: [
           ...state.notifications,
           {

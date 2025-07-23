@@ -7,6 +7,7 @@ import Logo from "../../components/Logo";
 import NoData from "../../components/NoData";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
+import { formatDateTime } from "../../services/formatDateTime";
 
 function Watchlist() {
   const { user } = useContext(UserContext);
@@ -63,7 +64,7 @@ function Watchlist() {
                       : movie?.first_air_date?.split("-").at(0)}
                   </p>
                   <p style={{ opacity: 0.5, fontSize: "0.75rem" }}>
-                    Added on {}
+                    Added on {formatDateTime(movie.timestamp)}
                   </p>
                 </div>
               </div>
