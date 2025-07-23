@@ -74,6 +74,7 @@ function Search() {
           </div>
           <input
             ref={searchInput}
+            spellCheck={false}
             value={search}
             onChange={(e) =>
               searchDispatch({
