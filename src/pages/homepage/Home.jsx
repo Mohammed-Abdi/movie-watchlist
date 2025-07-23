@@ -13,7 +13,7 @@ function Home() {
       <BackgroundImage />
       <NavBar>
         <Logo />
-        <Link to="/dashboard">
+        <Link to="/movies-explore">
           <ActionButton>Explore</ActionButton>
         </Link>
       </NavBar>
