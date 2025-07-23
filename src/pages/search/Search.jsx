@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./Search.module.css";
 import Back from "../../assets/Back";
 import NavBar from "../../components/navBar";
@@ -7,11 +7,13 @@ import SecondaryButton from "../../components/secondary-button/SecondaryButton";
 import { useEffect, useRef, useState } from "react";
 import { fetchMoviesBySearch } from "../../utils/fetchMoviesBySearch";
 import Card from "../../components/card/Card";
+import MacCommand from "../../assets/MacCommand";
 
 function Search() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const searchInput = useRef();
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function search(query) {
@@ -34,6 +36,21 @@ function Search() {
     searchInput.current.focus();
   }, []);
 
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        searchInput.current?.focus();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   return (
     <main className={styles.Search}>
       <NavBar
@@ -42,11 +59,15 @@ function Search() {
           gap: "0.625rem",
         }}
       >
-        <Link to="/dashboard" style={{ color: "inherit" }}>
-          <SecondaryButton type="circle">
-            <Back style={{ opacity: 0.8 }} />
-          </SecondaryButton>
-        </Link>
+        <SecondaryButton
+          type="circle"
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
+          <Back style={{ opacity: 0.8 }} />
+        </SecondaryButton>
+
         <div
           style={{
             position: "relative",
@@ -67,6 +88,11 @@ function Search() {
             placeholder="Search..."
             className={styles.searchInput}
           />
+
+          <div className={styles.keyIcon}>
+            <MacCommand />
+            <span>+ K</span>
+          </div>
         </div>
       </NavBar>
 
@@ -83,7 +109,9 @@ function Search() {
         >
           {results.length === 0
             ? "Find your favorite movies, and TV show"
-            : `${results.length} Results Found`}
+            : `${
+                results.filter((result) => result.popularity > 1).length
+              } Results Found`}
         </div>
       </div>
 
