@@ -17,7 +17,7 @@ function HeroSlider({ movies, isLoading, error }) {
   const settings = {
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 10000,
+    autoplaySpeed: 5000,
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
