@@ -4,7 +4,7 @@ import BackgroundImage from "../../components/background-image/BackgroundImage";
 import Footer from "../../components/Footer";
 import Hero from "../../components/Hero";
 import Logo from "../../components/Logo";
-import NavBar from "../../components/navBar";
+import NavBar from "../../components/NavBar";
 import styles from "./Home.module.css";
 
 function Home() {
