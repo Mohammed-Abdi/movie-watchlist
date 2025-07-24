@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Back from "../../assets/icons/Back";
 import NavBar from "../../components/NavBar";
 import SecondaryButton from "../../components/secondary-button/SecondaryButton";
-import styles from "./notifications.module.css";
+import styles from "./Notifications.module.css";
 import Logo from "../../components/Logo";
 import NoData from "../../components/NoData";
 import { useContext, useEffect } from "react";
