@@ -1,5 +1,6 @@
 import LoadingAnimation from "../assets/animation/LoadingAnimation";
 import Card from "./card/Card";
+import ScrollRight from "./scroll-right/ScrollRight";
 
 function PopularMovies({ movies, isLoading, error }) {
   if (isLoading && !error)
@@ -27,8 +28,10 @@ function PopularMovies({ movies, isLoading, error }) {
         flexDirection: "column",
         gap: "1.25rem",
         padding: "1.25rem",
+        position: "relative",
       }}
     >
+      <ScrollRight />
       <h2>Popular Movies</h2>
       <div
         style={{
