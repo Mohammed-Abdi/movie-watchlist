@@ -1,5 +1,7 @@
 <p align="center">
-  <img src="/public/images/repo-mockup.png" alt="ItsMamme Watchlist App Mockup" width="100%" />
+  <a href="https://itsmamme-movie-watchlist.vercel.app" target="_blank">
+    <img src="/public/images/repo-mockup.png" alt="WatchNest Watchlist App Mockup" width="100%" />
+  </a>
 </p>
 
 <div align="center">
