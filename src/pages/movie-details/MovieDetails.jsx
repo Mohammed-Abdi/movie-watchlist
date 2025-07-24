@@ -47,7 +47,7 @@ function MovieDetails() {
   useEffect(() => {
     document.title = movie?.title || movie?.original_name;
     return () => {
-      document.title = "Movie Watchlist";
+      document.title = "WatchNest | Movie & TV Show Watchlist";
     };
   }, [movie]);
 
