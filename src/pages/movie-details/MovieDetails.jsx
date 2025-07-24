@@ -85,10 +85,11 @@ function MovieDetails() {
       <div className={styles.body}>
         <div className={styles.main}>
           <img
-            src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             alt={`${movie?.title || movie.original_name} poster`}
             loading="eager"
             className={styles.poster}
+            width={240}
           />
           <ActionButton
             style={{
