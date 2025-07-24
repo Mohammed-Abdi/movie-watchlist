@@ -9,6 +9,7 @@ const heroStyle = {
   textAlign: "center",
   transform: "translateY(-1.25rem)",
   marginTop: "30vh",
+  paddingInline: "1.25rem",
 };
 
 function Hero() {
