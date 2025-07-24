@@ -90,6 +90,7 @@ function MovieDetails() {
             loading="eager"
             className={styles.poster}
             width={240}
+            height={360}
           />
           <ActionButton
             style={{
