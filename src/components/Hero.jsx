@@ -15,8 +15,9 @@ function Hero() {
   return (
     <section style={heroStyle}>
       <div>
-        <h1>Your personal space for </h1>
-        <h1>every movie you want to see </h1>
+        <h1 style={{ maxWidth: "40rem" }}>
+          Your personal space for every movie you want to see
+        </h1>
       </div>
       <p style={{ maxWidth: "32rem" }}>
         Create and manage a watchlist that fits your taste. Save now, watch
