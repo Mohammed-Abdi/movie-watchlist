@@ -7,6 +7,7 @@ const footerStyle = {
   alignItems: "center",
   gap: "0.625rem",
   padding: "1.25rem",
+  textAlign: "center",
 };
 
 function Footer({ children }) {
