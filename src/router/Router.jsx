@@ -3,7 +3,7 @@ import Home from "../pages/homepage/Home";
 import Notifications from "../pages/notifications/Notifications";
 import Search from "../pages/search/Search";
 import Watchlist from "../pages/watchlist/Watchlist";
-import NotFound from "../pages/notFound";
+import NotFound from "../pages/NotFound";
 import { useContext } from "react";
 import { MovieContext } from "../context/MovieContext";
 import MovieDetails from "../pages/movie-details/MovieDetails";
