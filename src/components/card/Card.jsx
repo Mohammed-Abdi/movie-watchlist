@@ -37,7 +37,7 @@ function Card({ movie, isTvShow }) {
       </div>
       <img
         className={styles.poster}
-        src={`https://image.tmdb.org/t/p/w200${movie?.poster_path}`}
+        src={`https://image.tmdb.org/t/p/w300${movie?.poster_path}`}
         alt={`${movie?.title ? movie?.title : movie.original_name} poster`}
         loading="eager"
         width={150}
