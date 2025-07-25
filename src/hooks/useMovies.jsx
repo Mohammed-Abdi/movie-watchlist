@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 
 const initialState = null;
 
@@ -12,6 +12,14 @@ function reducer(state, action) {
 }
 
 export function useMovies() {
-  const [movie, dispatch] = useReducer(reducer, initialState);
+  const [movie, dispatch] = useReducer(reducer, initialState, () => {
+    const selectedMovie = localStorage.getItem("movie");
+    return selectedMovie ? JSON.parse(selectedMovie) : initialState;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("movie", JSON.stringify(movie));
+  }, [movie]);
+
   return { movie, dispatch };
 }
