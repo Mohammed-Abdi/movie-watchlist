@@ -17,12 +17,13 @@ function Hero() {
     <section style={heroStyle}>
       <div>
         <h1 style={{ maxWidth: "40rem" }}>
-          Your personal space for every movie you want to see
+          Your personal hub for movies and shows to watch later
         </h1>
       </div>
-      <p style={{ maxWidth: "32rem" }}>
-        Create and manage a watchlist that fits your taste. Save now, watch
-        later, never forget a film again.
+      <p style={{ maxWidth: "34rem" }}>
+        Build and manage a detailed watchlist tailored to your taste. Stay
+        organized, track everything you plan to watch, and never forget a film
+        again.
       </p>
       <Link to="/movies-explore">
         <ActionButton
